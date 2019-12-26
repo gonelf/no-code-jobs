@@ -62,7 +62,7 @@ $.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46
     $.each( val, function( i_key, job ) {
       items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list">'+
                       '<div class="company-logo col-auto" style="width:70px; border-radius:10px; overflow: hidden; padding: 0; margin: 0 15px;">'+
-                          '<img src="./assets/images/companies/'+job['company_name']+'.png" alt="'+job['company_name'].toLowerCase()+'">'+
+                          '<img src="./assets/images/companies/'+job['company_name'].toLowerCase()+'.png" alt="'+job['company_name']+'">'+
                       '</div>'+
                       '<div class="salary-type col-auto order-sm-3">'+
                           '<span class="salary-range">'+dateSince(job['date'])+'</span>'+
