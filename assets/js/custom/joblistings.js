@@ -32,8 +32,9 @@ function dateSince(date){
   var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
 
   //To display the final no. of days (result)
+  // console.log(Difference_In_Days);
   var result = ""
-  switch (Difference_In_Days-1){
+  switch (Difference_In_Days){
     case 0:
       result = "Today"
       break;
