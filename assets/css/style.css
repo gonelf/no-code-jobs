@@ -4,10 +4,10 @@
     Version: 1.0
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     01. Theme default CSS
     02. Elements CSS
         02.1 Accordion Elements CSS
@@ -1138,9 +1138,9 @@ select {
 .header.is-sticky {
   position: fixed;
   padding: 15px 0;
-  background-color: #007BFF;
+  /*background-color: #007BFF;
   -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);*/
 }
 
 .header.menu-open {
