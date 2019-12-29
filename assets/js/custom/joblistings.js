@@ -1,3 +1,13 @@
+function unescapeHtml(str){
+  var map = {amp: '&', lt: '<', le: '≤', gt: '>', ge: '≥', quot: '"', '#039': "'"}
+  return str.replace(/&([^;]+);/g, (m, c) => map[c]|| '')
+}
+
+function dateInvert(date){
+  var parts = date.split("/");
+  return parts.reverse().join("/");
+}
+
 function dateConvert(date) {
   var months = {
     "January": 1,
@@ -17,7 +27,10 @@ function dateConvert(date) {
           .replace(",", "")
           .split(" ")
 
-  return parts[2]+"-"+months[parts[0]]+"-"+parts[1]
+  if (parts.length > 1) {
+    return parts[2]+"-"+months[parts[0]]+"-"+parts[1]
+  }
+  return dateInvert(date);
 }
 
 
@@ -55,6 +68,12 @@ function applyTo (link){
   );
 }
 
+function addFilter (key, value){
+  const urlParams = new URLSearchParams(window.location.search);
+  urlParams.set(key, value.toLowerCase());
+  window.location.search = urlParams;
+}
+
 $.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec", function( data ) {
   $("#loading").remove();
   $.each( data, function( key, val ) {
@@ -66,7 +85,7 @@ $.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46
                       '</div>'+
                       '<div class="salary-type col-auto order-sm-3">'+
                           '<span class="salary-range">'+dateSince(job['date'])+'</span>'+
-                          '<span class="badge" style="border:solid 1px black; font-size:16px;">'+job['framework']+'</span>'+
+                          '<span class="badge" style="border:solid 1px black; font-size:16px;" onClick="addFilter(\'framework\', \''+job['framework']+'\');">'+job['framework']+'</span>'+
                       '</div>'+
                       '<div class="salary-type col-auto order-sm-3">'+
                           '<span class="badge" id="apply'+i_key+'">'+
@@ -82,7 +101,7 @@ $.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46
                       '</div>'+
                   '</a>'+
                 '<div class="collapse" id="collapse'+i_key+'">'+
-                  '<div class="card card-body" style="font-size: 16px;">'+job['description']+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
+                  '<div class="card card-body" style="font-size: 16px;">'+unescapeHtml(job['description'])+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
                 '</div>');
     });
 
