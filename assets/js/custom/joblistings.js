@@ -95,7 +95,7 @@ $.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46
                       '<div class="content col">'+
                           '<h6 class="title">'+job['title']+'</h6>'+
                           '<ul class="meta">'+
-                              '<li><strong class="text-primary">'+job['contract']+'</strong></li>'+
+                              '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+job['contract']+'\');">'+job['contract']+'</strong></li>'+
                               '<li><i class="fa fa-map-marker"></i>'+job['location']+'</li>'+
                           '</ul>'+
                       '</div>'+
