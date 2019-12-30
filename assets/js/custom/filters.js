@@ -36,7 +36,7 @@ function checkFilters(){
   }
 
   if (contract != "undefined") {
-    $("#contract").val(software).change();
+    $("#contract").val(contract).change();
   }
 }
 
