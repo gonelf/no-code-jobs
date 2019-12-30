@@ -68,12 +68,6 @@ function applyTo (link){
   );
 }
 
-function addFilter (key, value){
-  const urlParams = new URLSearchParams(window.location.search);
-  urlParams.set(key, value.toLowerCase());
-  window.location.search = urlParams;
-}
-
 $.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec", function( data ) {
   $("#loading").remove();
   $.each( data, function( key, val ) {
@@ -85,7 +79,7 @@ $.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46
                       '</div>'+
                       '<div class="salary-type col-auto order-sm-3">'+
                           '<span class="salary-range">'+dateSince(job['date'])+'</span>'+
-                          '<span class="badge" style="border:solid 1px black; font-size:16px;" onClick="addFilter(\'framework\', \''+job['framework']+'\');">'+job['framework']+'</span>'+
+                          '<span class="badge" style="border:solid 1px black; font-size:16px;" onClick="addFilter(\'software\', \''+job['framework']+'\');">'+job['framework']+'</span>'+
                       '</div>'+
                       '<div class="salary-type col-auto order-sm-3">'+
                           '<span class="badge" id="apply'+i_key+'">'+
