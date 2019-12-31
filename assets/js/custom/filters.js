@@ -15,7 +15,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 function addFilter (key, value){
   const urlParams = new URLSearchParams(window.location.search);
-  if (!urlParams.has(key) && value != "") {
+  if ((!urlParams.has(key) || value != $("#"+key).val()) && value != "") {
     urlParams.set(key, value.toLowerCase());
     window.location.search = urlParams;
   }
