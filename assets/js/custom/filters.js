@@ -15,27 +15,49 @@ var getUrlParameter = function getUrlParameter(sParam) {
 
 function addFilter (key, value){
   const urlParams = new URLSearchParams(window.location.search);
-  urlParams.set(key, value.toLowerCase());
-  window.location.search = urlParams;
+  if (!urlParams.has(key) && value != "") {
+    urlParams.set(key, value.toLowerCase());
+    window.location.search = urlParams;
+  }
+}
+
+function removeFilter(key, value){
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has(key)) {
+    urlParams.delete(key);
+    window.location.search = urlParams;
+  }
 }
 
 function selectSoftware(e) {
-  addFilter("software", e.value);
+  var val = e.value;
+  if (val != ""){
+    addFilter("software", val);
+  }
+  else {
+    removeFilter("software", val)
+  }
 }
 
 function selectContract(e){
-  addFilter("contract", e.value);
+  var val = e.value;
+  if (val != ""){
+    addFilter("contract", val);
+  }
+  else {
+    removeFilter("contract", val)
+  }
 }
 
 function checkFilters(){
   var software = getUrlParameter("software");
   var contract = getUrlParameter("contract");
 
-  if (software != "undefined") {
+  if (software != "undefined" && software != $("#software").val()) {
     $("#software").val(software).change();
   }
 
-  if (contract != "undefined") {
+  if (contract != "undefined" && contract != $("#contract").val()) {
     $("#contract").val(contract).change();
   }
 }
