@@ -68,37 +68,51 @@ function applyTo (link){
   );
 }
 
-$.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec", function( data ) {
-  $("#loading").remove();
-  $.each( data, function( key, val ) {
-    var items = [];
-    $.each( val, function( i_key, job ) {
-      items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list">'+
-                      '<div class="company-logo col-auto" style="width:70px; border-radius:10px; overflow: hidden; padding: 0; margin: 0 15px;">'+
-                          '<img src="./assets/images/companies/'+job['company_name'].toLowerCase()+'.png" alt="'+job['company_name']+'">'+
-                      '</div>'+
-                      '<div class="salary-type col-auto order-sm-3">'+
-                          '<span class="salary-range">'+dateSince(job['date'])+'</span>'+
-                          '<span class="badge" style="border:solid 1px black; font-size:16px;" onClick="addFilter(\'software\', \''+job['framework']+'\');">'+job['framework']+'</span>'+
-                      '</div>'+
-                      '<div class="salary-type col-auto order-sm-3">'+
-                          '<span class="badge" id="apply'+i_key+'">'+
-                            '<button type="button" class="btn btn-primary" onClick="applyTo(\''+job['submission']+'\');">Apply</button>'+
-                          '</span>'+
-                      '</div>'+
-                      '<div class="content col">'+
-                          '<h6 class="title">'+job['title']+'</h6>'+
-                          '<ul class="meta">'+
-                              '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+job['contract']+'\');">'+job['contract']+'</strong></li>'+
-                              '<li><i class="fa fa-map-marker"></i>'+job['location']+'</li>'+
-                          '</ul>'+
-                      '</div>'+
-                  '</a>'+
-                '<div class="collapse" id="collapse'+i_key+'">'+
-                  '<div class="card card-body" style="font-size: 16px;">'+unescapeHtml(job['description'])+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
-                '</div>');
-    });
+var software = getUrlParameter("software");
+var contract = getUrlParameter("contract");
+var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?"+
+          "software="+(software != undefined ? software : '')+
+          "&contract="+(contract != undefined ? contract : '');
 
-    $( ".job-list-wrap" ).append(items.join(""));
-  });
+$.getJSON( url, function( data ) {
+  $("#loading").remove();
+  var count = data['offers'].length;
+  if (count > 0) {
+    $.each( data, function( key, val ) {
+      var items = [];
+      $.each( val, function( i_key, job ) {
+        items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list">'+
+                        '<div class="company-logo col-auto" style="width:70px; border-radius:10px; overflow: hidden; padding: 0; margin: 0 15px;">'+
+                            '<img src="./assets/images/companies/'+job['company_name'].toLowerCase()+'.png" alt="'+job['company_name']+'">'+
+                        '</div>'+
+                        '<div class="salary-type col-auto order-sm-3">'+
+                            '<span class="salary-range">'+dateSince(job['date'])+'</span>'+
+                            '<span class="badge" style="border:solid 1px black; font-size:16px;" onClick="addFilter(\'software\', \''+job['framework']+'\');">'+job['framework']+'</span>'+
+                        '</div>'+
+                        '<div class="salary-type col-auto order-sm-3">'+
+                            '<span class="badge" id="apply'+i_key+'">'+
+                              '<button type="button" class="btn btn-primary" onClick="applyTo(\''+job['submission']+'\');">Apply</button>'+
+                            '</span>'+
+                        '</div>'+
+                        '<div class="content col">'+
+                            '<h6 class="title">'+job['title']+'</h6>'+
+                            '<ul class="meta">'+
+                                '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+job['contract']+'\');">'+job['contract']+'</strong></li>'+
+                                '<li><i class="fa fa-map-marker"></i>'+job['location']+'</li>'+
+                            '</ul>'+
+                        '</div>'+
+                    '</a>'+
+                  '<div class="collapse" id="collapse'+i_key+'">'+
+                    '<div class="card card-body" style="font-size: 16px;">'+unescapeHtml(job['description'])+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
+                  '</div>');
+      });
+
+      $( ".job-list-wrap" ).append(items.join(""));
+    });
+  }
+  else {
+    $( ".job-list-wrap" ).append("<div style='text-align: center; font-size: xx-large;'>No offers found for "+(software != undefined ? "'"+software+"'" : '')+
+                                                        (software != undefined && contract != undefined ? " and " : '')+
+                                                        (contract != undefined ? "'"+contract+"'" : '')+"</div>");
+  }
 });
