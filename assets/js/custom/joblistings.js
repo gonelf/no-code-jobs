@@ -100,6 +100,5 @@ $.getJSON( "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46
     });
 
     $( ".job-list-wrap" ).append(items.join(""));
-
   });
 });
