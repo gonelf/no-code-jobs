@@ -97,6 +97,15 @@ function gen_logo (image, company_name) {
   }
 }
 
+function gen_contract (contract){
+  if (contract.toLowerCase() != "unknown"){
+    return '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+contract+'\');">'+contract+'</strong></li>'
+  }
+  else {
+    return '';
+  }
+}
+
 var software = getUrlParameter("software");
 var contract = getUrlParameter("contract");
 var url = "https://script.google.com/macros/s/AKfycbxMy21Qyq5WO5WTtAXgbzHUhW84okGONJdrPHQe/exec?"+
@@ -127,7 +136,7 @@ $.getJSON( url, function( data ) {
                         '<div class="content col">'+
                             '<h6 class="title">'+job['title']+'</h6>'+
                             '<ul class="meta">'+
-                                '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+job['contract']+'\');">'+job['contract']+'</strong></li>'+
+                                gen_contract(job['contract'])+
                                 '<li><i class="fa fa-map-marker"></i>'+job['location']+'</li>'+
                             '</ul>'+
                         '</div>'+
