@@ -76,14 +76,14 @@ var url = "https://script.google.com/macros/s/AKfycbxMy21Qyq5WO5WTtAXgbzHUhW84ok
 
 $.getJSON( url, function( data ) {
   $("#loading").remove();
-  var count = data['offers'].length;
+  var count = data['crawler'].length;
   if (count > 0) {
     $.each( data, function( key, val ) {
       var items = [];
       $.each( val, function( i_key, job ) {
         items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list">'+
                         '<div class="company-logo col-auto" style="width:70px; border-radius:10px; overflow: hidden; padding: 0; margin: 0 15px;">'+
-                            '<img src="./assets/images/companies/'+job['company_name'].toLowerCase()+'.png" alt="'+job['company_name']+'">'+
+                            '<img src="'+job['company_logo']+'" alt="'+job['company_name']+'">'+
                         '</div>'+
                         '<div class="salary-type col-auto order-sm-3">'+
                             '<span class="salary-range">'+dateSince(job['date'])+'</span>'+
