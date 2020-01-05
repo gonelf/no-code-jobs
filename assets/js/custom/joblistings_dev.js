@@ -86,6 +86,17 @@ function applyTo (link){
   );
 }
 
+function gen_logo (image, company_name) {
+  var colors = ["#55efc4", "#00b894", "#ffeaa7", "#fdcb6e", "#00cec9", "#fab1a0", "#e17055", "#0984e3", "#ff7675", "#d63031", "#74b9ff", "#a29bfe"];
+  var color = colors[Math.floor(Math.random()*colors.length)]
+  if (image != ""){
+    return '<img src="'+image+'" alt="'+company_name+'">';
+  }
+  else {
+    return '<div class="avatar-circle" style=\'background-color: '+color+'\'><span class="initials">'+company_name.substring(0, 2)+'</span></div>';
+  }
+}
+
 var software = getUrlParameter("software");
 var contract = getUrlParameter("contract");
 var url = "https://script.google.com/macros/s/AKfycbxMy21Qyq5WO5WTtAXgbzHUhW84okGONJdrPHQe/exec?"+
@@ -99,9 +110,10 @@ $.getJSON( url, function( data ) {
     $.each( data, function( key, val ) {
       var items = [];
       $.each( val, function( i_key, job ) {
+        var logo = gen_logo(job['company_logo'], job['company_name'])
         items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list">'+
                         '<div class="company-logo col-auto" style="width:70px; border-radius:10px; overflow: hidden; padding: 0; margin: 0 15px;">'+
-                            '<img src="'+job['company_logo']+'" alt="'+job['company_name']+'">'+
+                            logo+
                         '</div>'+
                         '<div class="salary-type col-auto order-sm-3">'+
                             '<span class="salary-range">'+dateSince(job['date'])+'</span>'+
