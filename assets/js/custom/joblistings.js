@@ -88,13 +88,13 @@ function applyTo (link){
 
 var software = getUrlParameter("software");
 var contract = getUrlParameter("contract");
-var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?"+
+var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=offers&"+
           "software="+(software != undefined ? software : '')+
           "&contract="+(contract != undefined ? contract : '');
 
 $.getJSON( url, function( data ) {
   $("#loading").remove();
-  var count = data['offers'].length;
+  var count = data['data'].length;
   if (count > 0) {
     $.each( data, function( key, val ) {
       var items = [];

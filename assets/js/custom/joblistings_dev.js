@@ -108,13 +108,13 @@ function gen_contract (contract){
 
 var software = getUrlParameter("software");
 var contract = getUrlParameter("contract");
-var url = "https://script.google.com/macros/s/AKfycbxMy21Qyq5WO5WTtAXgbzHUhW84okGONJdrPHQe/exec?"+
+var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=crawler&"+
           "software="+(software != undefined ? software : '')+
           "&contract="+(contract != undefined ? contract : '');
 
 $.getJSON( url, function( data ) {
   $("#loading").remove();
-  var count = data['crawler'].length;
+  var count = data['data'].length;
   if (count > 0) {
     $.each( data, function( key, val ) {
       var items = [];
