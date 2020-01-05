@@ -99,7 +99,7 @@ function gen_logo (image, company_name) {
 
 function gen_contract (contract){
   if (contract.toLowerCase() != "unknown"){
-    return '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+contract+'\');">'+contract+'</strong></li>'
+    return '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+contract+'\');">'+contract+'</strong></li>';
   }
   else {
     return '';

@@ -63,3 +63,11 @@ function checkFilters(){
 }
 
 checkFilters();
+
+$("#software").change(function(){
+  selectSoftware(this);
+});
+
+$("#contract").change(function(){
+  selectContract(this);
+});
