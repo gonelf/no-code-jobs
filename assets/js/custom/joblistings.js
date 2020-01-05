@@ -3,6 +3,24 @@ function unescapeHtml(str){
   return str.replace(/&([^;]+);/g, (m, c) => map[c]|| '')
 }
 
+function strip_tags( _html /*you can put each single tag per argument*/ )
+{
+    var _tags = [], _tag = "" ;
+    for( var _a = 1 ; _a < arguments.length ; _a++ )
+    {
+        _tag = arguments[_a].replace( /<|>/g, '' ).trim() ;
+        if ( arguments[_a].length > 0 ) _tags.push( _tag, "/"+_tag );
+    }
+
+    if ( !( typeof _html == "string" ) && !( _html instanceof String ) ) return "" ;
+    else if ( _tags.length == 0 ) return _html.replace( /<(\s*\/?)[^>]+>/g, "" ) ;
+    else
+    {
+        var _re = new RegExp( "<(?!("+_tags.join("|")+")\s*\/?)[^>]+>", "g" );
+        return _html.replace( _re, '' );
+    }
+}
+
 function dateInvert(date){
   var parts = date.split("/");
   return parts.reverse().join("/");
@@ -103,7 +121,7 @@ $.getJSON( url, function( data ) {
                         '</div>'+
                     '</a>'+
                   '<div class="collapse" id="collapse'+i_key+'">'+
-                    '<div class="card card-body" style="font-size: 16px;">'+unescapeHtml(job['description'])+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
+                    '<div class="card card-body" style="font-size: 16px;">'+strip_tags(unescapeHtml(job['description']), "br")+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
                   '</div>');
       });
 
