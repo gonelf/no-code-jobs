@@ -2,12 +2,14 @@ function populateTool(tool) {
   console.log(tool);
   $("#title").html("About "+tool['name']);
   $("#overview").html(tool['overview']);
-  $("#box_title").html(tool['title']);
+  $("#box_title").html(tool['name']);
   $("#tool_logo").attr('src', tool['logo']);
   $("#tool_logo").attr('alt', tool['name']);
   $("#tags").html(tool['tags'].split(",").join(", "));
   $("#link").attr('href', tool['url']);
   $("#link").html(tool['url']);
+  $(".rich-text-block-12").show();
+  $(".div-block-159").hide();
   $("#tool").show();
 }
 
