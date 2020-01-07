@@ -99,7 +99,12 @@ function gen_logo (image, company_name) {
 
 function gen_contract (contract){
   if (contract.toLowerCase() != "unknown"){
-    return '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+contract+'\');">'+contract+'</strong></li>';
+    var contracts = contract.split(", ");
+    var items = [];
+    $.each(contracts, function(key, val){
+      items.push('<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+val+'\');">'+val+'</strong></li>')
+    })
+    return items.join("");
   }
   else {
     return '';
