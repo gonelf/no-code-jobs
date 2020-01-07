@@ -79,9 +79,10 @@ function dateSince(date){
   return result
 }
 
-function applyTo (link){
+function applyTo (link, id){
+  mixpanel.track("apply", {"id": id, "link": link});
   window.open(
-    link,
+    link+"?ref=nocodery.com",
     '_blank' // <- This is what makes it open in a new window.
   );
 }
@@ -109,7 +110,7 @@ $.getJSON( url, function( data ) {
                         '</div>'+
                         '<div class="salary-type col-auto order-sm-3">'+
                             '<span class="badge" id="apply'+i_key+'">'+
-                              '<button type="button" class="btn btn-primary" onClick="applyTo(\''+job['submission']+'\');">Apply</button>'+
+                              '<button type="button" class="btn btn-primary" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');">Apply</button>'+
                             '</span>'+
                         '</div>'+
                         '<div class="content col">'+
@@ -121,7 +122,8 @@ $.getJSON( url, function( data ) {
                         '</div>'+
                     '</a>'+
                   '<div class="collapse" id="collapse'+i_key+'">'+
-                    '<div class="card card-body" style="font-size: 16px;">'+strip_tags(unescapeHtml(job['description']), "br")+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
+                    '<div class="card card-body" style="font-size: 16px;">'+strip_tags(unescapeHtml(job['description']), "br")+'<br>'+
+                    '<a href="#" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');" target="_blank" class="btn btn-primary">Apply</a></div>'+
                   '</div>');
       });
 
