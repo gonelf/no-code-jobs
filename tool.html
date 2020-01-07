@@ -31,77 +31,87 @@
 
 <body>
 
-    <header class="header">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
+      <header class="header">
+          <div class="container">
+              <div class="row justify-content-between align-items-center">
 
-                <!-- Header Logo Start -->
-                <div class="col">
-                    <div class="header-logo">
-                      <h3 style="color: white;">NOCODERY</h3>
-                    </div>
-                </div><!-- Header Logo End -->
+                  <!-- Header Logo Start -->
+                  <div class="col">
+                      <div class="header-logo">
+                        <a href="index.html"><h3 style="color: white;">NOCODERY</h3></a>
+                      </div>
+                  </div><!-- Header Logo End -->
 
-                <!-- Offcanvas Toggle Start -->
-                <div class="col-auto d-lg-none d-flex align-items-center">
-                    <button class="offcanvas-toggle">
-                        <span></span>
-                    </button>
-                </div>
-                <!-- Offcanvas Toggle End -->
+                  <!-- Offcanvas Toggle Start -->
+                  <div class="col-auto d-lg-none d-flex align-items-center">
+                      <button class="offcanvas-toggle">
+                          <span></span>
+                      </button>
+                  </div>
+                  <!-- Offcanvas Toggle End -->
 
-                <!-- Header Links Start -->
-                <div class="header-links col-auto order-lg-3">
+                  <!-- Header Links Start -->
+                  <div class="header-links col-auto order-lg-3">
 
-                </div><!-- Header Links End -->
+                  </div><!-- Header Links End -->
 
-                <!-- Header Menu Start -->
-                <nav id="main-menu" class="main-menu col-lg-auto order-lg-2">
-                    <ul>
-                      <li>
-                        <a href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
-                          Experts
-                        </a>
-                      </li>
-                      <li>
-                        <a class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
-                          Post a Job
-                        </a>
-                      </li>
-                    </ul>
-                </nav>
-                <!-- Header Menu End -->
+                  <!-- Header Menu Start -->
+                  <nav id="main-menu" class="main-menu col-lg-auto order-lg-2">
+                      <ul>
+                        <li>
+                          <a href="tools.html" style="padding: 15px">
+                            Tools
+                          </a>
+                        </li>
+                        <li>
+                          <a href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
+                            Experts
+                          </a>
+                        </li>
+                        <li>
+                          <a class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
+                            Post a Job
+                          </a>
+                        </li>
+                      </ul>
+                  </nav>
+                  <!-- Header Menu End -->
 
-            </div>
+              </div>
 
-        </div>
-    </header>
+          </div>
+      </header>
 
 
-    <!--Offcanvas Section Start-->
-    <div id="offcanvas" class="offcanvas-section">
-        <button class="offcanvas-close" data-target="#offcanvas">&times;</button>
-        <div class="offcanvas-wrap">
-            <div class="inner">
+      <!--Offcanvas Section Start-->
+      <div id="offcanvas" class="offcanvas-section">
+          <button class="offcanvas-close" data-target="#offcanvas">&times;</button>
+          <div class="offcanvas-wrap">
+              <div class="inner">
 
-                <!-- Offcanvas Menu Start -->
-                <div class="offcanvas-menu">
-                    <nav>
-                        <ul>
-                          <li>
-                            <a href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
-                              Experts
-                            </a>
-                          </li>
-                          <li>
-                            <a class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
-                              Post a Job
-                            </a>
-                          </li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Offcanvas Menu End -->
+                  <!-- Offcanvas Menu Start -->
+                  <div class="offcanvas-menu">
+                      <nav>
+                          <ul>
+                            <li>
+                              <a href="tools.html" style="padding: 15px">
+                                Tools
+                              </a>
+                            </li>
+                            <li>
+                              <a href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
+                                Experts
+                              </a>
+                            </li>
+                            <li>
+                              <a class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
+                                Post a Job
+                              </a>
+                            </li>
+                          </ul>
+                      </nav>
+                  </div>
+                  <!-- Offcanvas Menu End -->
 
             </div>
         </div>
@@ -296,6 +306,28 @@
                 </div>
             </div>
             <!-- Footer Bottom Section End -->
+
+
+            <!-- job post modal start -->
+
+            <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <!-- job post form -->
+                    <div class="cognito">
+                    <script src="https://services.cognitoforms.com/s/nPwE6ocbek6wVFrZxleMwg"></script>
+                    <script type="text/javascript" src="./assets/js/custom/jobpostform.js"></script>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- job post modal end -->
 
         <!-- JS
     ============================================ -->
