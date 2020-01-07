@@ -83,7 +83,7 @@ function applyTo (link, id){
   mixpanel.track("apply", {"id": id, "link": link});
   const parts = link.split("?");
   link = link+((parts.length > 0) ? "&" : "?")+"ref=nocodery.com";
-  console.log(link);
+  
   window.open(
     link,
     '_blank' // <- This is what makes it open in a new window.
