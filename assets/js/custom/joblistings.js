@@ -81,8 +81,11 @@ function dateSince(date){
 
 function applyTo (link, id){
   mixpanel.track("apply", {"id": id, "link": link});
+  const urlParams = new URLSearchParams(link);
+  urlParams.set("ref", "nocodery.com");
+  link = urlParams;
   window.open(
-    link+"?ref=nocodery.com",
+    link,
     '_blank' // <- This is what makes it open in a new window.
   );
 }
