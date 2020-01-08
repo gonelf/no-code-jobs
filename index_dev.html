@@ -28,8 +28,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- initials logo -->
-    <link rel="stylesheet" href="assets/css/initials_logo.css">
-
+    <link rel="stylesheet" href="./assets/css/initials_logo.css">
 </head>
 
 <body>
@@ -41,7 +40,7 @@
                 <!-- Header Logo Start -->
                 <div class="col">
                     <div class="header-logo">
-                      <h3 style="color: white;">NOCODERY</h3>
+                      <a href="#top"><h3 style="color: white;">NOCODERY</h3></a>
                     </div>
                 </div><!-- Header Logo End -->
 
@@ -62,12 +61,17 @@
                 <nav id="main-menu" class="main-menu col-lg-auto order-lg-2">
                     <ul>
                       <li>
-                        <a href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
-                          Experts
+                        <a id="tools" href="tools.html" style="padding: 15px">
+                          Tools
                         </a>
                       </li>
                       <li>
-                        <a class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
+                        <a id="nocoders" href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
+                          nocoders
+                        </a>
+                      </li>
+                      <li>
+                        <a id="post_a_job" class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
                           Post a Job
                         </a>
                       </li>
@@ -92,12 +96,17 @@
                     <nav>
                         <ul>
                           <li>
-                            <a href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
-                              Experts
+                            <a id="tools" href="tools.html" style="padding: 15px">
+                              Tools
                             </a>
                           </li>
                           <li>
-                            <a class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
+                            <a id="nocoders" href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
+                              nocoders
+                            </a>
+                          </li>
+                          <li>
+                            <a id="post_a_job" class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
                               Post a Job
                             </a>
                           </li>
@@ -134,8 +143,9 @@
                     <div class="job-list-toolbar">
                         <p> </p>
                         <p>Filter by:
-                            <select id="software" onChange="selectSoftware(this);">
+                            <select id="software">
                                 <option value="">Software</option>
+                                <option value="webflow">Webflow</option>
                                 <option value="zapier">Zapier</option>
                                 <option value="glide">Glide</option>
                                 <option value="bubble">Bubble</option>
@@ -144,7 +154,7 @@
                                 <option value="memberspace">Memberspace</option>
                                 <option value="parabola">Parabola</option>
                             </select>
-                            <select id="contract" onChange="selectContract(this);">
+                            <select id="contract">
                                 <option value="">Contract</option>
                                 <option value="full-time">Full-time</option>
                                 <option value="part-time">Part-time</option>
@@ -262,7 +272,7 @@
     <!-- Footer Top Section End -->
 
     <!-- Footer Bottom Section Start -->
-    <div class="footer-bottom-section section">
+    <div class="footer-bottom-section section" style="margin-bottom: 100px;">
         <div class="container">
             <div class="row">
 
@@ -277,6 +287,34 @@
     </div>
     <!-- Footer Bottom Section End -->
 
+    <!-- mail subscribe -->
+    <div style="width:100%; height: 100px; position: fixed; bottom: 0px; background-color: DarkSlateGray; color: white; z-index: 100; text-align: center;">
+      <div class="row">
+        <div class="col-8 offset-2">
+          <!-- Begin Mailchimp Signup Form -->
+          <div id="mc_embed_signup">
+          <form action="https://nocodery.us4.list-manage.com/subscribe/post?u=b9b0fb71d1f83b3d91bf76fb3&amp;id=8a7c953072" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <div id="mc_embed_signup_scroll">
+              	<label for="mce-EMAIL"><h5 style="color: white; margin-top: 8px;">Get #nocode offers on your mailbox!</h5></label>
+                <div class="row">
+                  <div class="col-8">
+              	     <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" style="height: 100%;" required>
+                  </div>
+                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b9b0fb71d1f83b3d91bf76fb3_8a7c953072" tabindex="-1" value=""></div>
+                <div class="col-4">
+                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-primary" style="width: 100%">
+                </div>
+              </div>
+            </div>
+          </form>
+          </div>
+
+          <!--End mc_embed_signup-->
+        </div>
+      </div>
+    </div>
+
     <!-- job post modal start -->
 
     <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -285,8 +323,8 @@
           <div class="modal-body">
             <!-- job post form -->
             <div class="cognito">
-            <script src="https://services.cognitoforms.com/s/nPwE6ocbek6wVFrZxleMwg"></script>
-            <script type="text/javascript" src="./assets/js/custom/jobpostform.js"></script>
+            <!-- script src="https://services.cognitoforms.com/s/nPwE6ocbek6wVFrZxleMwg"></script -->
+
             </div>
           </div>
           <div class="modal-footer">
@@ -296,7 +334,7 @@
       </div>
     </div>
 
-    <!-- job post modal end -.>
+    <!-- job post modal end -->
 
     <!-- JS ============================================ -->
 
@@ -312,16 +350,24 @@
     <script src="assets/js/plugins/jquery.parallax.js"></script>
     <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
     <script src="assets/js/plugins/ion.rangeSlider.min.js"></script>
-    <script src="assets/js/plugins/jquery.scrollUp.min.js"></script>
+    <!-- script src="assets/js/plugins/jquery.scrollUp.min.js"></script -->
+
+    <script type="text/javascript" src="./assets/js/custom/jobpostform.js"></script>
 
     <!-- Main Activation JS -->
     <script src="assets/js/main.js"></script>
+
+    <!-- cookie -->
+    <script type="text/javascript" src="./assets/js/custom/cookie.js"></script>
+
+    <!-- mixpanel -->
+    <script type="text/javascript" src="./assets/js/custom/mixpanel.js"></script>
 
     <!-- filters -->
     <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
 
     <!-- get job listings -->
-    <script src="assets/js/custom/joblistings_dev.js"></script>
+    <script src="assets/js/custom/joblistings.js"></script>
 
     <!-- mailchimp -->
     <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
