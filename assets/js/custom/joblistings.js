@@ -93,7 +93,7 @@ function applyTo (link, id){
 
 var software = getUrlParameter("software");
 var contract = getUrlParameter("contract");
-var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=offers&"+
+var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=crawler&"+
           "software="+(software != undefined ? software : '')+
           "&contract="+(contract != undefined ? contract : '');
 
