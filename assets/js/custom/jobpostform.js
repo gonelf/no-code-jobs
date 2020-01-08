@@ -7,9 +7,14 @@ jQuery.loadScript = function (url, callback) {
     });
 }
 
-$(".cognito").click(function(){
-  $.loadScript("https://services.cognitoforms.com/s/nPwE6ocbek6wVFrZxleMwg", function(){
-    console.log("loaded");
-    Cognito.load("forms", { id: "1" });
-  });
+var loaded = false;
+
+$("#post_a_job").click(function(){
+  if (!loaded) {
+    $.loadScript("https://services.cognitoforms.com/s/nPwE6ocbek6wVFrZxleMwg", function(){
+      Cognito.load("forms", { id: "1" });
+      loaded = true;
+      $("#loading_form").remove();
+    });
+  }
 });
