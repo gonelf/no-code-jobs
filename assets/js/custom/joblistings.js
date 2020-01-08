@@ -79,16 +79,36 @@ function dateSince(date){
   return result
 }
 
-function applyTo (link, id){
-  logJob("apply", id, link);
-
-  const parts = link.split("?");
-  link = link+((parts.length > 0) ? "&" : "?")+"ref=nocodery.com";
-
+function applyTo (link){
   window.open(
     link,
     '_blank' // <- This is what makes it open in a new window.
   );
+}
+
+function gen_logo (image, company_name) {
+  var colors = ["#55efc4", "#00b894", "#ffeaa7", "#fdcb6e", "#00cec9", "#fab1a0", "#e17055", "#0984e3", "#ff7675", "#d63031", "#74b9ff", "#a29bfe"];
+  var color = colors[Math.floor(Math.random()*colors.length)]
+  if (image != ""){
+    return '<img src="'+image+'" alt="'+company_name+'">';
+  }
+  else {
+    return '<div class="avatar-circle" style=\'background-color: '+color+'\'><span class="initials">'+company_name.substring(0, 2)+'</span></div>';
+  }
+}
+
+function gen_contract (contract){
+  if (contract.toLowerCase() != "unknown"){
+    var contracts = contract.split(", ");
+    var items = [];
+    $.each(contracts, function(key, val){
+      items.push('<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+val+'\');">'+val+'</strong></li>')
+    })
+    return items.join("");
+  }
+  else {
+    return '';
+  }
 }
 
 var software = getUrlParameter("software");
@@ -104,9 +124,10 @@ $.getJSON( url, function( data ) {
     $.each( data, function( key, val ) {
       var items = [];
       $.each( val, function( i_key, job ) {
-        items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list" onClick="'+logJob("more_info", job['id'], job['submission'])+'">'+
+        var logo = gen_logo(job['company_logo'], job['company_name'])
+        items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list">'+
                         '<div class="company-logo col-auto" style="width:70px; border-radius:10px; overflow: hidden; padding: 0; margin: 0 15px;">'+
-                            '<img src="./assets/images/companies/'+job['company_name'].toLowerCase()+'.png" alt="'+job['company_name']+'">'+
+                            logo+
                         '</div>'+
                         '<div class="salary-type col-auto order-sm-3">'+
                             '<span class="salary-range">'+dateSince(job['date'])+'</span>'+
@@ -114,20 +135,19 @@ $.getJSON( url, function( data ) {
                         '</div>'+
                         '<div class="salary-type col-auto order-sm-3">'+
                             '<span class="badge" id="apply'+i_key+'">'+
-                              '<button type="button" class="btn btn-primary" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');">Apply</button>'+
+                              '<button type="button" class="btn btn-primary" onClick="applyTo(\''+job['submission']+'\');">Apply</button>'+
                             '</span>'+
                         '</div>'+
                         '<div class="content col">'+
                             '<h6 class="title">'+job['title']+'</h6>'+
                             '<ul class="meta">'+
-                                '<li><strong class="text-primary" onClick="addFilter(\'contract\', \''+job['contract']+'\');">'+job['contract']+'</strong></li>'+
+                                gen_contract(job['contract'])+
                                 '<li><i class="fa fa-map-marker"></i>'+job['location']+'</li>'+
                             '</ul>'+
                         '</div>'+
                     '</a>'+
                   '<div class="collapse" id="collapse'+i_key+'">'+
-                    '<div class="card card-body" style="font-size: 16px;">'+strip_tags(unescapeHtml(job['description']), "br")+'<br>'+
-                    '<a href="#" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');" target="_blank" class="btn btn-primary">Apply</a></div>'+
+                    '<div class="card card-body" style="font-size: 16px;">'+strip_tags(unescapeHtml(job['description']), "br")+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
                   '</div>');
       });
 
