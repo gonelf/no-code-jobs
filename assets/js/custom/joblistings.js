@@ -80,6 +80,11 @@ function dateSince(date){
 }
 
 function applyTo (link){
+  logJob("apply", id, link);
+
+  const parts = link.split("?");
+  link = link+((parts.length > 0) ? "&" : "?")+"ref=nocodery.com";
+
   window.open(
     link,
     '_blank' // <- This is what makes it open in a new window.
@@ -147,7 +152,8 @@ $.getJSON( url, function( data ) {
                         '</div>'+
                     '</a>'+
                   '<div class="collapse" id="collapse'+i_key+'">'+
-                    '<div class="card card-body" style="font-size: 16px;">'+strip_tags(unescapeHtml(job['description']), "br")+'<br><a href="'+job['submission']+'" target="_blank" class="btn btn-primary">Apply</a></div>'+
+                    '<div class="card card-body" style="font-size: 16px;">'+strip_tags(unescapeHtml(job['description']), "br")+'<br>'+
+                    '<a href="#" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');" target="_blank" class="btn btn-primary">Apply</a></div>'+
                   '</div>');
       });
 
