@@ -263,9 +263,9 @@
     /*--
         Scroll Up
     -----------------------------------*/
-    $.scrollUp({
+    /*$.scrollUp({
         scrollText: '<i class="fa fa-long-arrow-up"></i>',
-    });
+    });*/
 
     /*--
         Google Map

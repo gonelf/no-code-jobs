@@ -80,10 +80,11 @@ function dateSince(date){
 }
 
 function applyTo (link, id){
-  mixpanel.track("apply", {"id": id, "link": link});
+  logJob("apply", id, link);
+
   const parts = link.split("?");
   link = link+((parts.length > 0) ? "&" : "?")+"ref=nocodery.com";
-  
+
   window.open(
     link,
     '_blank' // <- This is what makes it open in a new window.
@@ -103,7 +104,7 @@ $.getJSON( url, function( data ) {
     $.each( data, function( key, val ) {
       var items = [];
       $.each( val, function( i_key, job ) {
-        items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list">'+
+        items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list" onClick="'+logJob("more_info", job['id'], job['submission'])+'">'+
                         '<div class="company-logo col-auto" style="width:70px; border-radius:10px; overflow: hidden; padding: 0; margin: 0 15px;">'+
                             '<img src="./assets/images/companies/'+job['company_name'].toLowerCase()+'.png" alt="'+job['company_name']+'">'+
                         '</div>'+

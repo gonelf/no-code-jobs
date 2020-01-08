@@ -29,7 +29,7 @@ $.getJSON( url, function( data ) {
         if (tool_param && tool_param.toLowerCase() == tool['name'].toLowerCase()) tool_info = tool;
 
         items.push('<div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12">'+
-                        '<a href="tool.html?tool='+tool['name']+'" class="company-list">'+
+                        '<a href="tool.html?tool='+tool['name']+'" class="company-list" onClick="log(\'tool\', {\'name\': \''+tool['name']+'\'})">'+
                             '<span class="company-logo"><img src="'+tool['logo']+'" style="width: 70px;" alt="company-1"></span>'+
                             '<h6 class="title">'+tool['name']+'</h6>'+
                             //'<span class="open-job">2 open positions</span>'+

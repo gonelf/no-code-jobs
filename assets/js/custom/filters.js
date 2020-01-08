@@ -16,6 +16,7 @@ var getUrlParameter = function getUrlParameter(sParam) {
 function addFilter (key, value){
   const urlParams = new URLSearchParams(window.location.search);
   if ((!urlParams.has(key) || value != $("#"+key).val()) && value != "") {
+    log("filter", {"tool": value});
     urlParams.set(key, value.toLowerCase());
     window.location.search = urlParams;
   }
@@ -70,4 +71,16 @@ $("#software").change(function(){
 
 $("#contract").change(function(){
   selectContract(this);
+});
+
+$("#tools").on("click", function(){
+  log("menu", {"button": "tools"});
+});
+
+$("#nocoders").on("click", function(){
+  log("menu", {"button": "nocoders"});
+});
+
+$("#post_a_job").on("click", function(){
+  log("menu", {"button": "post a job"});
 });
