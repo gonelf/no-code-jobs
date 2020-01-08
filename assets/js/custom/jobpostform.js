@@ -14,7 +14,7 @@ $("#post_a_job").click(function(){
     $.loadScript("https://services.cognitoforms.com/s/nPwE6ocbek6wVFrZxleMwg", function(){
       Cognito.load("forms", { id: "1" });
       loaded = true;
-      $("#loading_form").remove();
+      setTimeout(function(){ $("#loading_form").remove(); }, 1500);
     });
   }
 });
