@@ -29,6 +29,9 @@
 
     <!-- initials logo -->
     <link rel="stylesheet" href="./assets/css/initials_logo.css">
+
+    <!-- stripe form -->
+    <link rel="stylesheet" href="./assets/css/form-reset.css">
 </head>
 
 <body>
@@ -324,9 +327,25 @@
           <div class="modal-body">
             <!-- job post form -->
             <div class="cognito">
-              <div id="loading_form" style="width: 100%; text-align: center;">
-                <h3 style="margin: 0;"><img style="width: 32px;" src="./assets/images/custom/loader.gif" />&nbsp;&nbsp;&nbsp;Loading Form</h3>
-              </div>
+              <form action="https://formspree.io/mbjgrnbl"
+                method="post" id="payment-form"
+              >
+                <label for="name">Name</label>
+                <input type="text" name="name" required/>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" required/>
+
+                <label for="card-element">Credit or debit card</label>
+                <div id="card-element">
+                  <!-- A Stripe Element will be inserted here. -->
+                </div>
+
+                <!-- Used to display form errors. -->
+                <div id="card-errors" role="alert"></div>
+
+                <input type="submit" value="Submit Payment"/>
+              </form>
             </div>
           </div>
           <div class="modal-footer">
@@ -354,8 +373,6 @@
     <script src="assets/js/plugins/ion.rangeSlider.min.js"></script>
     <!-- script src="assets/js/plugins/jquery.scrollUp.min.js"></script -->
 
-    <script type="text/javascript" src="./assets/js/custom/jobpostform.js"></script>
-
     <!-- Main Activation JS -->
     <script src="assets/js/main.js"></script>
 
@@ -368,11 +385,16 @@
     <!-- filters -->
     <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
 
+    <!-- script type="text/javascript" src="./assets/js/custom/jobpostform.js"></script -->
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="./assets/js/custom/stripe.js"></script>
+
     <!-- get job listings -->
     <script src="assets/js/custom/joblistings.js"></script>
 
     <!-- mailchimp -->
-    <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+    <!-- script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script -->
     <script type="text/javascript" src="./assets/js/custom/mailchimp.js"></script>
 
     <!-- drift -->
@@ -390,6 +412,8 @@
 
     <!-- logrocket -->
     <script type="text/javascript" src="./assets/js/custom/logrocket.js"></script>
+
+
 
 </body>
 
