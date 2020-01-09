@@ -10,7 +10,7 @@ function populateTool(tool) {
   $(".rich-text-block-12").show();
   $(".div-block-159").hide();
   $("#tool").show();
-  $("#tool_sidebar").prepend("<li><img src='./assets/images/custom/verified.png' style='width: 22px; margin-bottom: 5px;' /> <b>Verified</b></li>")
+  if (tool['verified'] == true) $("#tool_sidebar").prepend("<li><img src='./assets/images/custom/verified.png' style='width: 22px; margin-bottom: 5px;' /> <b>Verified</b></li>")
   var images = tool['images'].split(",");
   $.each(images, function(key, image){
     $("#images").append(
