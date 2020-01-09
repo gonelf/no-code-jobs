@@ -141,6 +141,7 @@
                     <div class="company-details">
                         <h5 id="title" class="mb-3">About Tabbli</h5>
                         <p id="overview"></p>
+                        <div id="images"></div>
                     </div>
                     <!-- Company Details Start -->
 
@@ -180,7 +181,7 @@
                                 <div class="sidebar-company">
                                     <span class="company-logo"><img id="tool_logo" src="" style="height: 70px;" alt=""></span>
                                     <h6 id="box_title" class="title"></h6>
-                                    <ul>
+                                    <ul id="tool_sidebar">
                                         <li><strong>Categories:</strong> <span id="tags"></span></li>
                                         <!--li><strong>Founded:</strong> 2019</li>
                                         <li><strong>Team Size:</strong> 50 - 100</li>
@@ -329,6 +330,21 @@
 
             <!-- job post modal end -->
 
+            <!-- picture modal -->
+            <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog  modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <img src="" id="imagepreview" style="width: 100%;" >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- picture modal end -->
+
         <!-- JS
     ============================================ -->
 
@@ -351,15 +367,15 @@
 
         <!-- Main Activation JS -->
         <script src="assets/js/main.js"></script>
-
-        <!-- filters -->
-        <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
+        
+        <!-- cookie\ -->
+        <script type="text/javascript" src="./assets/js/custom/cookie.js"></script>
 
         <!-- mixpanel -->
         <script type="text/javascript" src="./assets/js/custom/mixpanel.js"></script>
 
-        <!-- cookie\ -->
-        <script type="text/javascript" src="./assets/js/custom/cookie.js"></script>
+        <!-- filters -->
+        <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
 
         <!-- tools -->
         <script src="./assets/js/custom/tools.js"></script>
