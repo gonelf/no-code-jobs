@@ -314,16 +314,75 @@
             <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">New Job Post</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  </div>
                   <div class="modal-body">
                     <!-- job post form -->
-                    <div class="cognito">
-                      <div id="loading_form" style="width: 100%; text-align: center;">
-                        <h3 style="margin: 0;"><img style="width: 32px;" src="./assets/images/custom/loader.gif" />&nbsp;&nbsp;&nbsp;Loading Form</h3>
-                      </div>
+                    <div class="stripe">
+                      <form action="https://formspree.io/mbjgrnbl" method="post" id="payment-form" >
+                        <h5>Job Info</h5>
+                        <label for="job_title">Title *</label>
+                        <input type="text" name="job_title" required/>
+
+                        <label for="job_description">Description *</label>
+                        <input type="text" name="job_description" required/>
+
+                        <label for="job_contract">Contract *</label>
+                        <select name="job_contract" required/>
+                          <option selected="selected" value="Full-time">Full-time</option>
+                          <option value="Part-time">Part-time</option>
+                          <option value="Contractor">Contractor</option>
+                          <option value="Freelance">Freelance</option>
+                        </select>
+
+                        <label for="job_tool">Tool *</label>
+                        <select name="job_tool" required/>
+                          <option selected="selected" value="Webflow">Webflow</option>
+                          <option value="Zapier">Zapier</option>
+                          <option value="Bubble">Bubble</option>
+                          <option value="Adalo">Adalo</option>
+                          <option value="Glide">Glide</option>
+                          <option value="Airtable">Airtable</option>
+                          <option value="Gumroad">Gumroad</option>
+                          <option value="Memberspace">Memberspace</option>
+                          <option value="Parabola">Parabola</option>
+                        </select>
+
+                        <label for="job_location">Location *</label>
+                        <input type="text" name="job_location" value="Remote" required/>
+
+                        <h5>Contractor Info</h5>
+                        <label for="contractor_name">Name *</label>
+                        <input type="text" name="contractor_name" required/>
+
+                        <label for="contractor_url">Website *</label>
+                        <input type="text" name="contractor_url" required/>
+
+                        <label for="contractor_submission">Submission Link / Email *</label>
+                        <input type="text" name="contractor_submission" required/>
+
+                        <label for="contractor_email">Email *</label>
+                        <input type="email" name="contractor_email" required/>
+
+                        <h5>Payment Info</h5>
+                        <br>
+                        <h6>Job Post (Launch Discount) - $29.00</h6>
+
+                        <label for="card-element">Credit or debit card (powered by Stripe)</label>
+                        <div id="card-element">
+                          <!-- A Stripe Element will be inserted here. -->
+                        </div>
+
+                        <!-- Used to display form errors. -->
+                        <div id="card-errors" role="alert"></div>
+
+                        <input type="submit" value="Submit Payment"/>
+                        <input type="hidden" name="_next" value="https://nocodery.com/"/>
+                        <input type="hidden" name="date" id="post_date" />
+                      </form>
                     </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   </div>
                 </div>
               </div>
@@ -377,8 +436,14 @@
 
         <!-- filters -->
         <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
+    
+        <script>
+          var today = new Date();
+          $("#post_date").val(today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2));
+        </script>
 
-        <script type="text/javascript" src="./assets/js/custom/jobpostform.js"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script src="./assets/js/custom/stripe.js"></script>
 
         <!-- tools -->
         <script src="./assets/js/custom/tools.js"></script>
