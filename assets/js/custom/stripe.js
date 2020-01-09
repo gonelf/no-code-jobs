@@ -1,4 +1,5 @@
 var stripe = (getUrlParameter("private") == true) ? Stripe('pk_test_zEz6HMIIxdVpTqd8e09nfc1600hNjtEOqv') : Stripe('pk_live_oDYKR8kGsKaX40QaPUaVDEMl00Csg3Z8mP');
+console.log(getUrlParameter("private"));
 var elements = stripe.elements();
 
 // Create an instance of the card Element.
