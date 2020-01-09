@@ -79,7 +79,7 @@ function dateSince(date){
   return result
 }
 
-function applyTo (link){
+function applyTo (link, id){
   logJob("apply", id, link);
 
   //const parts = link.split("?");
@@ -140,7 +140,7 @@ $.getJSON( url, function( data ) {
                         '</div>'+
                         '<div class="salary-type col-auto order-sm-3">'+
                             '<span class="badge" id="apply'+i_key+'">'+
-                              '<button type="button" class="btn btn-primary" onClick="applyTo(\''+job['submission']+'\');">Apply</button>'+
+                              '<button type="button" class="btn btn-primary" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');">Apply</button>'+
                             '</span>'+
                         '</div>'+
                         '<div class="content col">'+
