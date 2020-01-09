@@ -82,8 +82,8 @@ function dateSince(date){
 function applyTo (link){
   logJob("apply", id, link);
 
-  const parts = link.split("?");
-  link = link+((parts.length > 0) ? "&" : "?")+"ref=nocodery.com";
+  //const parts = link.split("?");
+  //link = link+((parts.length > 0) ? "&" : "?")+"ref=nocodery.com";
 
   window.open(
     link,
