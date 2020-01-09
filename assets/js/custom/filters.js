@@ -80,7 +80,3 @@ $("#tools").on("click", function(){
 $("#nocoders").on("click", function(){
   log("menu", {"button": "nocoders"});
 });
-
-$("#post_a_job").on("click", function(){
-  log("menu", {"button": "post a job"});
-});

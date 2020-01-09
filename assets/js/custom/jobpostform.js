@@ -10,6 +10,7 @@ jQuery.loadScript = function (url, callback) {
 var loaded = false;
 
 $("#post_a_job").click(function(){
+  log("menu", {"button": "post a job"});
   if (!loaded) {
     $.loadScript("https://services.cognitoforms.com/s/nPwE6ocbek6wVFrZxleMwg", function(){
       Cognito.load("forms", { id: "1" });
