@@ -81,7 +81,7 @@ function dateSince(date){
 
 function applyTo (link, id){
   logJob("apply", id, link);
-
+  _addProof("Applied to a Job");
   //const parts = link.split("?");
   //link = link+((parts.length > 0) ? "&" : "?")+"ref=nocodery.com";
 
