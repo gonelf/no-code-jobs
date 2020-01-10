@@ -430,6 +430,19 @@
     <!-- mixpanel -->
     <script type="text/javascript" src="./assets/js/custom/mixpanel.js"></script>
 
+    <!-- socialproof -->
+    <script>!function(t,e,o,a){a="getElementsByTagName",(e=t.createElement("script")).type="text/javascript",e.async=!0,e.src="https://app.socialproof.buzz/widget/script",e.onload=e.onreadystatechange=function(){var t=this.readyState;if(!t||"complete"==t||"loaded"==t)try{$ocialProof.init("t9bBYfxh3")}catch(t){console.log(t)}},(o=t[a]("script")[0]||t[a]("head")[0]||t[a]("body")[0]).parentNode.insertBefore(e,o)}(document);</script>
+    <script>
+      function _addProof(message){
+        var proof = {
+            'name':'Someone',
+            'email': 'Someone@email.com',
+            'message': message
+        }
+        $ocialProof.addProof(proof);
+      }
+    </script>
+
     <!-- filters -->
     <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
 
@@ -461,9 +474,6 @@
 
     <!-- hello bar -->
     <script src="https://my.hellobar.com/573f26dfe089ae8f2b205893d356d76d2fe5b69e.js" type="text/javascript" charset="utf-8" async="async"></script>
-
-    <!-- socualproof -->
-    <script>!function(t,e,o,a){a="getElementsByTagName",(e=t.createElement("script")).type="text/javascript",e.async=!0,e.src="https://app.socialproof.buzz/widget/script",e.onload=e.onreadystatechange=function(){var t=this.readyState;if(!t||"complete"==t||"loaded"==t)try{$ocialProof.init("t9bBYfxh3")}catch(t){console.log(t)}},(o=t[a]("script")[0]||t[a]("head")[0]||t[a]("body")[0]).parentNode.insertBefore(e,o)}(document);</script>
 
 </body>
 
