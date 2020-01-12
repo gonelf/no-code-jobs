@@ -6,7 +6,7 @@ function populateTool(tool) {
   $("#tool_logo").attr('src', tool['logo']);
   $("#tool_logo").attr('alt', tool['name']);
   $("#tags").html(tool['tags'].split(",").join(", "));
-  $("#link").attr('href', tool['url']);
+  $("#link").attr('href', tool['url']+"?ref=nocodery.com");
   $("#link").html(tool['url']);
   $(".rich-text-block-12").show();
   $(".div-block-159").hide();
