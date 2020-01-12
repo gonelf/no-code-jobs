@@ -162,8 +162,9 @@ $.getJSON( url, function( data ) {
       });
 
       $( ".job-list-wrap" ).append(items.join(""));
-      var scroll = $("#job"+job).offset()['top'];
+
       if (job != undefined && job != ""){
+        var scroll = $("#job"+job).offset()['top'];
         $('html, body').animate({
             scrollTop: $("#job"+job).offset()['top']
         }, 2000);

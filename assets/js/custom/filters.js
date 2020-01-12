@@ -82,6 +82,5 @@ $("#nocoders").on("click", function(){
 });
 
 $("#post_a_job").click(function(){
-  _addProof("Posted a new Job");
   log("menu", {"button": "post a job"});
 });
