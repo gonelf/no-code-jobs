@@ -2,7 +2,7 @@ function populateTool(tool) {
   $("#title").html("About "+tool['name']);
   $("#overview").html(tool['overview']);
   $("#box_title").html(tool['name']);
-  $("#hero_title").html("#nocode tool - "+tool['name'])
+  $("#hero_title").html("#nocode tool - "+tool['name']+"");
   $("#tool_logo").attr('src', tool['logo']);
   $("#tool_logo").attr('alt', tool['name']);
   $("#tags").html(tool['tags'].split(",").join(", "));
