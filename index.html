@@ -329,6 +329,38 @@
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           </div>
           <div class="modal-body">
+            <div id="info">
+              <p class="tagline" style="text-align: center; font-size: 16px;">
+                NoCodery is the 🏆 1st <br>
+                no code dedicated jobs board in the world <br>
+                trusted by hundreds of no coders and<br>
+                no code companies such as<br><br>
+                <img src="./assets/images/tools/Bildr.png" style="height: 40px;" />
+              </p>
+              <div class="row">
+                <div class="col-6 col-lg-3" style="text-align: center; border: solid 1px LightGrey;">
+                  <p style="margin-bottom: 7px;">Reach</p>
+                  <h5>🚀 2000+</h5>
+                  <p>No Coders</p>
+                </div>
+                <div class="col-6 col-lg-3" style="text-align: center; border: solid 1px LightGrey;">
+                  <p style="margin-bottom: 7px;">Recurring</p>
+                  <h5>📆 600+</h5>
+                  <p>Daily Visits</p>
+                </div>
+                <div class="col-6 col-lg-3" style="text-align: center; border: solid 1px LightGrey;">
+                  <p style="margin-bottom: 7px;">CTR</p>
+                  <h5>🎯 10%</h5>
+                  <p>Applications</p>
+                </div>
+                <div class="col-6 col-lg-3" style="text-align: center; border: solid 1px LightGrey;">
+                  <p style="margin-bottom: 7px;">Price</p>
+                  <h5>💳 $29</h5>
+                  <p>Launch Campaign</p>
+                </div>
+              </div>
+            </div>
+            <hr>
             <!-- job post form -->
             <div class="stripe">
               <form action="https://formspree.io/mbjgrnbl" method="post" id="payment-form" >
@@ -388,7 +420,7 @@
                 <!-- Used to display form errors. -->
                 <div id="card-errors" role="alert"></div>
 
-                <input type="submit" value="Submit Payment"/>
+                <input type="submit" value="Submit Payment" class="btn btn-primary"/>
                 <input type="hidden" name="_next" value="https://nocodery.com/"/>
                 <input type="hidden" name="date" id="post_date" />
               </form>
@@ -429,19 +461,6 @@
 
     <!-- mixpanel -->
     <script type="text/javascript" src="./assets/js/custom/mixpanel.js"></script>
-
-    <!-- socialproof -->
-    <script>!function(t,e,o,a){a="getElementsByTagName",(e=t.createElement("script")).type="text/javascript",e.async=!0,e.src="https://app.socialproof.buzz/widget/script",e.onload=e.onreadystatechange=function(){var t=this.readyState;if(!t||"complete"==t||"loaded"==t)try{$ocialProof.init("t9bBYfxh3")}catch(t){console.log(t)}},(o=t[a]("script")[0]||t[a]("head")[0]||t[a]("body")[0]).parentNode.insertBefore(e,o)}(document);</script>
-    <script>
-      function _addProof(message){
-        var proof = {
-            'name':'Someone',
-            'email': 'Someone@email.com',
-            'message': message
-        }
-        $ocialProof.addProof(proof);
-      }
-    </script>
 
     <!-- filters -->
     <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
