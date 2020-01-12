@@ -1,7 +1,31 @@
+function unescapeHtml(str){
+  var map = {amp: '&', lt: '<', le: '≤', gt: '>', ge: '≥', quot: '"', '#039': "'"}
+  return str.replace(/&([^;]+);/g, (m, c) => map[c]|| '')
+}
+
+function strip_tags( _html /*you can put each single tag per argument*/ )
+{
+    var _tags = [], _tag = "" ;
+    for( var _a = 1 ; _a < arguments.length ; _a++ )
+    {
+        _tag = arguments[_a].replace( /<|>/g, '' ).trim() ;
+        if ( arguments[_a].length > 0 ) _tags.push( _tag, "/"+_tag );
+    }
+
+    if ( !( typeof _html == "string" ) && !( _html instanceof String ) ) return "" ;
+    else if ( _tags.length == 0 ) return _html.replace( /<(\s*\/?)[^>]+>/g, "" ) ;
+    else
+    {
+        var _re = new RegExp( "<(?!("+_tags.join("|")+")\s*\/?)[^>]+>", "g" );
+        return _html.replace( _re, '' );
+    }
+}
+
 function populateTool(tool) {
   $("#title").html("About "+tool['name']);
-  $("#overview").html(tool['overview']);
+  $("#overview").html(strip_tags(unescapeHtml(tool['overview'])));
   $("#box_title").html(tool['name']);
+  $("#hero_title").html("#nocode tool - "+too['name'])
   $("#tool_logo").attr('src', tool['logo']);
   $("#tool_logo").attr('alt', tool['name']);
   $("#tags").html(tool['tags'].split(",").join(", "));
