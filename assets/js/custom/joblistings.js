@@ -118,6 +118,8 @@ function gen_contract (contract){
 
 var software = getUrlParameter("software");
 var contract = getUrlParameter("contract");
+var job = getUrlParameter("job");
+
 var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=crawler&"+
           "software="+(software != undefined ? software : '')+
           "&contract="+(contract != undefined ? contract : '');
@@ -130,7 +132,7 @@ $.getJSON( url, function( data ) {
       var items = [];
       $.each( val, function( i_key, job ) {
         var logo = gen_logo(job['company_logo'], job['company_name'])
-        items.push('<a href="#collapse'+i_key+'" data-toggle="collapse" class="job-list">'+
+        items.push('<a id="job'+job['id']+'" href="#collapse'+job['id']+'" data-toggle="collapse" class="job-list">'+
                         '<div class="company-logo col-auto" style="width:70px; border-radius:10px; overflow: hidden; padding: 0; margin: 0 15px;">'+
                             logo+
                         '</div>'+
@@ -151,7 +153,7 @@ $.getJSON( url, function( data ) {
                             '</ul>'+
                         '</div>'+
                     '</a>'+
-                  '<div class="collapse" id="collapse'+i_key+'">'+
+                  '<div class="collapse" id="collapse'+job['id']+'">'+
                     '<div class="card card-body" style="font-size: 16px;">'+
                       strip_tags(unescapeHtml(job['description']), "br")+
                       '<div class="text-center" style="margin: 30px 0px;"><a href="#" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');" target="_blank" class="btn btn-primary" style="width: 200px;">Apply</a></div>'+
@@ -160,6 +162,13 @@ $.getJSON( url, function( data ) {
       });
 
       $( ".job-list-wrap" ).append(items.join(""));
+      var scroll = $("#job"+job).offset()['top'];
+      if (job != undefined && job != ""){
+        $('html, body').animate({
+            scrollTop: $("#job"+job).offset()['top']
+        }, 2000);
+        $("#job"+job).click();
+      }
     });
   }
   else {
