@@ -152,8 +152,10 @@ $.getJSON( url, function( data ) {
                         '</div>'+
                     '</a>'+
                   '<div class="collapse" id="collapse'+i_key+'">'+
-                    '<div class="card card-body" style="font-size: 16px;">'+strip_tags(unescapeHtml(job['description']), "br")+'<br>'+
-                    '<a href="#" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');" target="_blank" class="btn btn-primary">Apply</a></div>'+
+                    '<div class="card card-body" style="font-size: 16px;">'+
+                      strip_tags(unescapeHtml(job['description']), "br")+
+                      '<div class="text-center" style="margin: 30px 0px;"><a href="#" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');" target="_blank" class="btn btn-primary" style="width: 200px;">Apply</a></div>'+
+                    '</div>'+
                   '</div>');
       });
 
