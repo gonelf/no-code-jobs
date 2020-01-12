@@ -81,8 +81,9 @@ function dateSince(date){
 
 function applyTo (link, id){
   logJob("apply", id, link);
-  //const parts = link.split("?");
-  //link = link+((parts.length > 0) ? "&" : "?")+"ref=nocodery.com";
+  var parts = link.split("?");
+  var connector = ((parts.length > 0) ? "&" : "?");
+  link += connector+"ref=nocodery.com";
 
   window.open(
     link,
@@ -177,3 +178,12 @@ $.getJSON( url, function( data ) {
                                                         (contract != undefined ? "'"+contract+"'" : '')+"</div>");
   }
 });
+
+$("body").on("click", ".job-list", function(){
+  if ($(this).css("background-color") != "rgb(173, 216, 230)"){
+    $(this).css("background-color", "rgb(173, 216, 230)")
+  }
+  else {
+    $(this).css("background-color", "rgba(0, 0, 0, 0)")
+  }
+})
