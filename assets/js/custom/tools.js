@@ -23,7 +23,7 @@ function strip_tags( _html /*you can put each single tag per argument*/ )
 
 function populateTool(tool) {
   $("#title").html("About "+tool['name']);
-  $("#overview").html(strip_tags(unescapeHtml(tool['overview']), "br"));
+  $("#overview").html(tool['overview']);
   $("#box_title").html(tool['name']);
   $("#hero_title").html("#nocode tool - "+tool['name'])
   $("#tool_logo").attr('src', tool['logo']);
