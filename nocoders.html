@@ -1,8 +1,32 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Sample FirebaseUI App</title>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>NOCODERY</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="A nocode job aggregator">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+
+    <!-- CSS
+	============================================ -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/flaticon.css">
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/css/plugins/slick.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
 
@@ -13,14 +37,14 @@
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
-        apiKey: "AIzaSyALLIKe6N8A2IQTMZJ4B6_aeHHUh35X6O0",
-        authDomain: "calendar-366dd.firebaseapp.com",
-        databaseURL: "https://calendar-366dd.firebaseio.com",
-        projectId: "calendar-366dd",
-        storageBucket: "calendar-366dd.appspot.com",
-        messagingSenderId: "323415797816",
-        appId: "1:323415797816:web:8bd1efe55fb459ff3ab6cd",
-        measurementId: "G-QB4429PY63"
+        apiKey: "AIzaSyAixUDo3YBhwKtfh-_QB1PYVGpHqx7r200",
+        authDomain: "nocodery.firebaseapp.com",
+        databaseURL: "https://nocodery.firebaseio.com",
+        projectId: "nocodery",
+        storageBucket: "nocodery.appspot.com",
+        messagingSenderId: "463330803215",
+        appId: "1:463330803215:web:3d19f661465796844bed7a",
+        measurementId: "G-KRLQ5YM9ZK"
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
@@ -57,11 +81,416 @@
       // The start method will wait until the DOM is loaded.
       ui.start('#firebaseui-auth-container', uiConfig);
     </script>
-  </head>
-  <body>
-    <!-- The surrounding HTML is left untouched by FirebaseUI.
-         Your app may use that space for branding, controls and other customizations.-->
-    <h1>Welcome to My Awesome App</h1>
-    <div id="firebaseui-auth-container"></div>
-  </body>
+</head>
+
+<body>
+
+      <header class="header">
+          <div class="container">
+              <div class="row justify-content-between align-items-center">
+
+                  <!-- Header Logo Start -->
+                  <div class="col">
+                      <div class="header-logo">
+                        <a href="index.html"><h3 style="color: white;">NOCODERY</h3></a>
+                      </div>
+                  </div><!-- Header Logo End -->
+
+                  <!-- Offcanvas Toggle Start -->
+                  <div class="col-auto d-lg-none d-flex align-items-center">
+                      <button class="offcanvas-toggle">
+                          <span></span>
+                      </button>
+                  </div>
+                  <!-- Offcanvas Toggle End -->
+
+                  <!-- Header Links Start -->
+                  <div class="header-links col-auto order-lg-3">
+
+                  </div><!-- Header Links End -->
+
+                  <!-- Header Menu Start -->
+                  <nav id="main-menu" class="main-menu col-lg-auto order-lg-2">
+                      <ul>
+                        <li>
+                          <a id="tools" href="tools.html" style="padding: 15px">
+                            Tools
+                          </a>
+                        </li>
+                        <li>
+                          <a id="nocoders" href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
+                            nocoders
+                          </a>
+                        </li>
+                        <li>
+                          <a id="post_a_job" class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
+                            Post a Job
+                          </a>
+                        </li>
+                      </ul>
+                  </nav>
+                  <!-- Header Menu End -->
+
+              </div>
+
+          </div>
+      </header>
+
+
+      <!--Offcanvas Section Start-->
+      <div id="offcanvas" class="offcanvas-section">
+          <button class="offcanvas-close" data-target="#offcanvas">&times;</button>
+          <div class="offcanvas-wrap">
+              <div class="inner">
+
+                  <!-- Offcanvas Menu Start -->
+                  <div class="offcanvas-menu">
+                      <nav>
+                          <ul>
+                            <li>
+                              <a id="tools" href="tools.html" style="padding: 15px">
+                                Tools
+                              </a>
+                            </li>
+                            <li>
+                              <a id="nocoders" href="https://nocodery.typeform.com/to/EZoY0c" target="_blank" style="padding: 15px">
+                                nocoders
+                              </a>
+                            </li>
+                            <li>
+                              <a id="post_a_job" class="btn btn-warning"  data-toggle="modal" data-target="#exampleModal" style="padding: 15px">
+                                Post a Job
+                              </a>
+                            </li>
+                          </ul>
+                      </nav>
+                  </div>
+                  <!-- Offcanvas Menu End -->
+
+            </div>
+        </div>
+    </div>
+    <!--Offcanvas Section End-->
+    <!--OffCanvas Overlay-->
+    <div class="offcanvas-overlay"></div>
+
+    <!-- Page Heading Section Start -->
+    <div class="page-heading-section section" data-bg-image="assets/images/bg/william-iven-gcsNOsPEXfs-unsplash.jpg" data-overlay="50">
+        <div class="container">
+            <div class="page-heading-content text-center">
+                <h3 class="title">nocoders</h3>
+            </div>
+        </div>
+    </div>
+    <!-- Page Heading Section End -->
+
+    <!-- Company List Start -->
+    <div class="section section-padding" style="padding-top: 45px;">
+        <div class="container">
+            <div class="row mb-n5">
+
+                <div class="col-lg-8 col-12 mb-5 pr-lg-5">
+
+                    <!-- Company List Wrap Start -->
+                    <div class="company-list-wrap row">
+
+                    </div>
+                    <!-- Company List Wrap Start -->
+
+                    <!-- Pagination Start -->
+                    <!-- ul class="pagination pagination-center mt-5">
+                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                    </ul -->
+                    <!-- Pagination End -->
+
+                </div>
+
+                <!-- Company Sidebar Wrap Start -->
+                <div class="col-lg-4 col-12 mb-5">
+                    <div class="sidebar-wrap">
+                        <!-- Sidebar (Search) Start -->
+                        <div class="sidebar-widget">
+                            <div class="inner" style="text-align: center">
+                                <a href="#" data-toggle="modal" data-target="#signupModal" target="_blank">
+                                  <strong>Create your profile</strong>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Sidebar (Search) End -->
+                        <!-- Sidebar (Search) Start -->
+                        <!-- div class="sidebar-widget">
+                            <div class="inner">
+                                  <img src="./assets/images/banner/bildr_mrec.png" style="width: 316px;" alt="Banner">
+                                  <a class="banner" href="https://bildr.com?ref=nocodery.com" target="_blank">
+                                </a>
+                            </div>
+                        </div -->
+                        <!-- Sidebar (Search) End -->
+                    </div>
+                </div>
+                <!-- Company Sidebar Wrap End -->
+
+            </div>
+        </div>
+    </div>
+    <!-- Company List End -->
+
+        <!-- Footer Top Section Start -->
+        <div class="footer-top-section section">
+            <div class="container">
+                <div class="footer-widget-wrap row">
+
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="footer-widget">
+                          <h6 class="title">NOCODERY</h6>
+                          <div class="footer-widget-about">
+                              <p>A nocode job aggregator.</p>
+                              <p>Photo by <a href="https://unsplash.com/@firmbee?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="
+                                ">William Iven</a> on <a href="https://unsplash.com/s/photos/lego?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="
+                                ">Unsplash</a></p>
+                              <!-- ul class="footer-socail">
+                                  <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                  <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                  <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                              </ul -->
+                          </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="footer-widget">
+                            <h6 class="title">Quick links</h6>
+                            <div class="footer-widget-link">
+                                <ul>
+                                    <li><a class="lightbox-193544731007051" href="#">Post New Job</a></li>
+                                    <li><a href="https://app.termly.io/document/privacy-notice/4ac57082-867d-4151-a809-3e9eb6460f0e" target="_blank">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="footer-widget">
+                            <h6 class="title">Trending Jobs</h6>
+                            <div class="footer-widget-link">
+                                <ul>
+                                    <li><a href="#webflow" onClick="addFilter('framework', 'webflow');">Webflow</a></li>
+                                    <li><a href="#zapier" onClick="addFilter('framework', 'zapier');">Zapier</a></li>
+                                    <li><a href="#glide" onClick="addFilter('framework', 'glide');">glide</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+
+                    <!-- Footer Widget Start -->
+                    <div class="col-lg-3 col-sm-6 col-12">
+                        <div class="footer-widget">
+                            <h6 class="title">Newsletter</h6>
+                            <div class="footer-widget-newsletter">
+                                <p>Get NOCODE job listings directly in you mailbox.</p>
+                                <form id="mc-form" class="mc-form">
+                                    <input id="mc-email" autocomplete="off" type="email" placeholder="Enter your e-mail address">
+                                    <button id="mc-submit" class="btn"><i class="fa fa-envelope-o"></i></button>
+                                </form>
+                                <!-- mailchimp-alerts Start -->
+                                <div class="mailchimp-alerts text-centre">
+                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                    <div class="mailchimp-success text-success"></div><!-- mailchimp-success end -->
+                                    <div class="mailchimp-error text-danger"></div><!-- mailchimp-error end -->
+                                </div><!-- mailchimp-alerts end -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget End -->
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer Top Section End -->
+
+        <!-- Footer Bottom Section Start -->
+        <div class="footer-bottom-section section">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Footer Copyright Start -->
+                    <div class="col-12">
+                        <p class="footer-copyright text-center">Copyright &copy; 2019 <a href="https://nocodery.com/">nocodery</a> All Rights Reserved.</p>
+                    </div>
+                    <!-- Footer Copyright End -->
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom Section End -->
+
+
+        <!-- job post modal start -->
+
+        <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">New Job Post</h5>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+              </div>
+              <div class="modal-body">
+                <!-- job post form -->
+                <div class="stripe">
+                  <form action="https://formspree.io/mbjgrnbl" method="post" id="payment-form" >
+                    <h5>Job Info</h5>
+                    <label for="job_title">Title *</label>
+                    <input type="text" name="job_title" required/>
+
+                    <label for="job_description">Description *</label>
+                    <input type="text" name="job_description" required/>
+
+                    <label for="job_contract">Contract *</label>
+                    <select name="job_contract" required/>
+                      <option selected="selected" value="Full-time">Full-time</option>
+                      <option value="Part-time">Part-time</option>
+                      <option value="Contractor">Contractor</option>
+                      <option value="Freelance">Freelance</option>
+                    </select>
+
+                    <label for="job_tool">Tool *</label>
+                    <select name="job_tool" required/>
+                      <option selected="selected" value="Webflow">Webflow</option>
+                      <option value="Zapier">Zapier</option>
+                      <option value="Bubble">Bubble</option>
+                      <option value="Adalo">Adalo</option>
+                      <option value="Glide">Glide</option>
+                      <option value="Airtable">Airtable</option>
+                      <option value="Gumroad">Gumroad</option>
+                      <option value="Memberspace">Memberspace</option>
+                      <option value="Parabola">Parabola</option>
+                    </select>
+
+                    <label for="job_location">Location *</label>
+                    <input type="text" name="job_location" value="Remote" required/>
+
+                    <h5>Contractor Info</h5>
+                    <label for="contractor_name">Name *</label>
+                    <input type="text" name="contractor_name" required/>
+
+                    <label for="contractor_url">Website *</label>
+                    <input type="text" name="contractor_url" required/>
+
+                    <label for="contractor_submission">Submission Link / Email *</label>
+                    <input type="text" name="contractor_submission" required/>
+
+                    <label for="contractor_email">Email *</label>
+                    <input type="email" name="contractor_email" required/>
+
+                    <h5>Payment Info</h5>
+                    <br>
+                    <h6>Job Post (Launch Discount) - $29.00</h6>
+
+                    <label for="card-element">Credit or debit card (powered by Stripe)</label>
+                    <div id="card-element">
+                      <!-- A Stripe Element will be inserted here. -->
+                    </div>
+
+                    <!-- Used to display form errors. -->
+                    <div id="card-errors" role="alert"></div>
+
+                    <input type="submit" value="Submit Payment"/>
+                    <input type="hidden" name="_next" value="https://nocodery.com/"/>
+                    <input type="hidden" name="date" id="post_date" />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- job post modal end -->
+
+        <!-- login form -->
+        <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div id="firebaseui-auth-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- login form end -->
+
+    <!-- JS
+============================================ -->
+
+    <!-- Google Map API JS -->
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC3nDHy1dARR-Pa_2jjPCjvsOR4bcILYsM'></script>
+
+    <!-- Vendors JS -->
+    <script src="assets/js/vendor/modernizr-3.6.0.min.js"></script>
+    <script src="assets/js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugins JS -->
+    <script src="assets/js/plugins/slick.min.js"></script>
+    <script src="assets/js/plugins/jquery.waypoints.min.js"></script>
+    <script src="assets/js/plugins/jquery.counterup.min.js"></script>
+    <script src="assets/js/plugins/jquery.parallax.js"></script>
+    <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/plugins/ion.rangeSlider.min.js"></script>
+    <script src="assets/js/plugins/jquery.scrollUp.min.js"></script>
+
+    <!-- Main Activation JS -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- cookie -->
+    <script type="text/javascript" src="./assets/js/custom/cookie.js"></script>
+
+    <!-- mixpanel -->
+    <script type="text/javascript" src="./assets/js/custom/mixpanel.js"></script>
+
+    <!-- filters -->
+    <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
+
+    <script>
+      var today = new Date();
+      $("#post_date").val(today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2));
+    </script>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="./assets/js/custom/stripe.js"></script>
+
+    <!-- drift -->
+    <script type="text/javascript" src="./assets/js/custom/drift.js"></script>
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <!-- script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e0633b6e6c77b68"></script -->
+
+    <!-- cookie consent -->
+    <script type="text/javascript" src="./assets/js/custom/cookiebanner.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155058287-1"></script>
+    <script type="text/javascript" src="./assets/js/custom/googleanalytics.js"></script>
+
+    <!-- logrocket -->
+    <script type="text/javascript" src="./assets/js/custom/logrocket.js"></script>
+</body>
+
 </html>
