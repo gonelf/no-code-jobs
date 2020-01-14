@@ -45,9 +45,6 @@
         $("#firebaseui-auth-container").html(user);
         console.log(user);
 
-        const firebase = require("firebase");
-        // Required for side-effects
-        require("firebase/firestore");
         var db = firebase.firestore();
 
       } else {
