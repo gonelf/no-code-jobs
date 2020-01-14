@@ -44,11 +44,12 @@
         $("#login_btn").attr('data-target', '#profileModal');
         $("#login_btn").html(user);
         $("#firebaseui-auth-container").html(user);
+        console.log(user);
       } else {
         // No user is signed in.
         // FirebaseUI config.
         var uiConfig = {
-          signInSuccessUrl: 'profile.html',
+          signInSuccessUrl: '',
           signInOptions: [
             // Leave the lines as is for the providers you want to offer your users.
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
