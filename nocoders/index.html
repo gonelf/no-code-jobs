@@ -137,8 +137,8 @@
                 <div class="col-lg-8 col-12 mb-5 pr-lg-5">
 
                     <!-- Company List Wrap Start -->
-                    <div class="company-list-wrap row" data-membership-id="5e1e59424ae4120017321c18">
-                      Sign Up
+                    <div class="company-list-wrap row">
+
                     </div>
                     <!-- Company List Wrap Start -->
 
@@ -161,8 +161,8 @@
                         <!-- Sidebar (Search) Start -->
                         <div class="sidebar-widget">
                             <div class="inner" style="text-align: center">
-                                <a id="login_btn" href="#" data-toggle="modal" data-target="#signupModal" target="_blank">
-                                  <strong>Signup / Login</strong>
+                                <a id="login_btn" href="#" data-toggle="modal" data-target="#signupModal" target="_blank" data-membership-id="5e1e59424ae4120017321c18">
+                                  <strong>Login</strong>
                                 </a>
                             </div>
                         </div>
@@ -374,7 +374,19 @@
                 </button>
               </div>
               <div class="modal-body">
-                <div id="firebaseui-auth-container"></div>
+                <form ms-signup="true" method="post">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" value="" ms-field="email" required/>
+
+                  <label for="username">Username</label>
+                  <input type="text" name="username" value="" ms-field="username" required/>
+
+                  <label for="password">Password</label>
+                  <input type="password" name="password" value="" ms-field="password" required/>
+
+                  <label for="c_password">Confirm Password</label>
+                  <input type="password" name="c_password" value="" ms-field="confirm-password" required/>
+                </form>
               </div>
             </div>
           </div>
