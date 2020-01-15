@@ -356,7 +356,6 @@
                     <div id="card-errors" role="alert"></div>
 
                     <input type="submit" value="Submit Payment"/>
-                    <input type="hidden" name="_next" value="https://nocodery.com/"/>
                     <input type="hidden" name="date" id="post_date" />
                   </form>
                 </div>
@@ -372,6 +371,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
+                <h5 class="modal-title">Sign Up</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -389,7 +389,12 @@
 
                   <label for="c_password">Confirm Password</label>
                   <input type="password" name="c_password" value="" ms-field="confirm-password" required/>
+
+                  <input type="submit" value="Sign Up"/>
                 </form>
+              </div>
+              <div class="modal-footer">
+                <p><a onclick="openLoginSignup();">Already have an account? Login here.</a></p>
               </div>
             </div>
           </div>
@@ -401,6 +406,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -413,8 +419,12 @@
                   <label for="password">Password</label>
                   <input type="password" name="password" value="" ms-field="password" required/>
 
+                  <input type="submit" value="Login"/>
                   <p><a href="#" ms-forgot="true">forgot password?</a></p>
                 </form>
+              </div>
+              <div class="modal-footer">
+                <p><a onclick="openLoginSignup();">Don't have an account? Sign Up here.</a></p>
               </div>
             </div>
           </div>
@@ -423,6 +433,13 @@
 
     <!-- JS
 ============================================ -->
+
+    <script>
+    function openLoginSignup(){
+      $("#signupModal").modal();
+      $("#loginModal").modal();
+    }
+    </script>
 
     <!-- Google Map API JS -->
     <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC3nDHy1dARR-Pa_2jjPCjvsOR4bcILYsM'></script>
@@ -459,7 +476,7 @@
     </script>
 
     <!-- script src="https://js.stripe.com/v3/"></script -->
-    <script src="../assets/js/custom/stripe.js"></script>
+    <!-- script src="../assets/js/custom/stripe.js"></script -->
 
     <!-- drift -->
     <script type="text/javascript" src="../assets/js/custom/drift.js"></script>
