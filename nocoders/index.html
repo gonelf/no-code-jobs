@@ -364,7 +364,7 @@
 
         <!-- job post modal end -->
 
-        <!-- login form -->
+        <!-- sign up form -->
         <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -391,9 +391,9 @@
             </div>
           </div>
         </div>
-        <!-- login form end -->
+        <!-- sign up form end -->
 
-        <!-- profile form -->
+        <!-- login form -->
         <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -403,12 +403,20 @@
                 </button>
               </div>
               <div class="modal-body">
-                <div id="firebaseui-auth-container"></div>
+                <form ms-login="true" method="post" action="">
+                  <label for="email">Email</label>
+                  <input type="email" name="email" value="" ms-field="email" required/>
+
+                  <label for="password">Password</label>
+                  <input type="password" name="password" value="" ms-field="password" required/>
+
+                  <p><a href="#" ms-forgot="true">forgot password?</a></p>
+                </form>
               </div>
             </div>
           </div>
         </div>
-        <!-- profile form end -->
+        <!-- login form end -->
 
     <!-- JS
 ============================================ -->
