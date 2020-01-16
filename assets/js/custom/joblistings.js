@@ -83,7 +83,8 @@ function applyTo (link, id){
   logJob("apply", id, link);
   var parts = link.split("?");
   var connector = ((parts.length > 0) ? "&" : "?");
-  link += connector+"ref=nocodery.com";
+  console.log(link+connector+"ref=nocodery.com");
+  //link += connector+"ref=nocodery.com";
 
   window.open(
     link,
