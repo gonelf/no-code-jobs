@@ -439,21 +439,6 @@
     <!-- JS
 ============================================ -->
 
-    <script>
-    function openLoginSignup(){
-      $("#signupModal").modal('toggle');
-      $("#loginModal").modal('toggle');
-    }
-
-    MemberStack.onReady.then(function(member) {
-       // check if member is logged in
-       console.log(member.loggedIn);
-       if (member.loggedIn){
-         $("#login_btn").attr("href", "/profile.html");
-       }
-    })
-    </script>
-
     <!-- Google Map API JS -->
     <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC3nDHy1dARR-Pa_2jjPCjvsOR4bcILYsM'></script>
 
@@ -506,6 +491,21 @@
 
     <!-- logrocket -->
     <script type="text/javascript" src="../assets/js/custom/logrocket.js"></script>
+
+    <script>
+    function openLoginSignup(){
+      $("#signupModal").modal('toggle');
+      $("#loginModal").modal('toggle');
+    }
+
+    MemberStack.onReady.then(function(member) {
+       // check if member is logged in
+       console.log(member.loggedIn);
+       if (member.loggedIn){
+         $("#login_btn").attr("href", "/profile.html");
+       }
+    })
+    </script>
 </body>
 
 </html>
