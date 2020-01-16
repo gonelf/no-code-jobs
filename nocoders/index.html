@@ -447,6 +447,7 @@
 
     MemberStack.onReady.then(function(member) {
        // check if member is logged in
+       console.log(member.loggedIn);
        if (member.loggedIn){
          $("#login_btn").attr("href", "/profile.html");
        }
