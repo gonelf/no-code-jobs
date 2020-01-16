@@ -9,7 +9,7 @@
     <meta name="description" content="A nocode job aggregator">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
 
     <!-- CSS
 	============================================ -->
@@ -32,6 +32,13 @@
 
     <!-- stripe form -->
     <link rel="stylesheet" href="./assets/css/form-reset.css">
+
+    <!-- metomic concent -->
+    <script src="https://config.metomic.io/config.js?id=prj:2d6aaf33-b7fa-41b3-9974-c69271b1ed57" crossorigin charset="utf-8"></script>
+    <script src="https://consent-manager.metomic.io/embed.js" crossorigin charset="utf-8"></script>
+
+    <!-- Memberstack -->
+    <script src="https://api.memberstack.io/static/memberstack.js?custom" data-memberstack-id="79c39bd0497aacd1694d5bc2383086fd"></script>
 </head>
 
 <body>
@@ -136,7 +143,7 @@
     <!-- Page Heading Section End -->
 
     <!-- Recent Jobs Start -->
-    <div class="section section-padding">
+    <div class="section section-padding" style="padding-top: 30px;">
         <div class="container visible-xs">
             <div class="row mb-n5">
 
@@ -292,22 +299,22 @@
     <!-- Footer Bottom Section End -->
 
     <!-- mail subscribe -->
-    <div style="width:100%; height: 100px; position: fixed; bottom: 0px; background-color: DarkSlateGray; color: white; z-index: 100; text-align: center;">
+    <div style="width:100%; height: 70px; position: fixed; bottom: 0px; background-color: DarkSlateGray; color: white; z-index: 100; text-align: center;">
       <div class="row">
         <div class="col-8 offset-2">
           <!-- Begin Mailchimp Signup Form -->
           <div id="mc_embed_signup">
           <form action="https://nocodery.us4.list-manage.com/subscribe/post?u=b9b0fb71d1f83b3d91bf76fb3&amp;id=8a7c953072" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
               <div id="mc_embed_signup_scroll">
-              	<label for="mce-EMAIL"><h5 style="color: white; margin-top: 8px;">Get #nocode offers on your mailbox!</h5></label>
+              	<label for="mce-EMAIL"><p style="color: white; margin-top: 8px;"><strong>Get #nocode offers on your mailbox!</strong></p></label>
                 <div class="row">
                   <div class="col-8">
-              	     <input type="email" value="" name="EMAIL" class="email form-control" id="mce-EMAIL" placeholder="email address" style="height: 100%;" required>
+              	     <input type="email" value="" name="EMAIL" class="email form-control form-control-sm" id="mce-EMAIL" placeholder="email address" required>
                   </div>
                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b9b0fb71d1f83b3d91bf76fb3_8a7c953072" tabindex="-1" value=""></div>
                 <div class="col-4">
-                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn btn-primary" style="width: 100%">
+                  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn-primary btn-sm" style="width: 100%">
                 </div>
               </div>
             </div>
@@ -329,6 +336,38 @@
             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
           </div>
           <div class="modal-body">
+            <div id="info">
+              <p class="tagline" style="text-align: center; font-size: 16px;">
+                NoCodery is the 🏆 1st <br>
+                no code dedicated jobs board in the world <br>
+                trusted by hundreds of no coders and<br>
+                no code companies such as<br><br>
+                <img src="./assets/images/tools/Bildr.png" style="height: 40px;" />
+              </p>
+              <div class="row">
+                <div class="col-6 col-lg-3" style="text-align: center; border: solid 1px LightGrey;">
+                  <p style="margin-bottom: 7px;">Reach</p>
+                  <h5>🚀 2000+</h5>
+                  <p>No Coders</p>
+                </div>
+                <div class="col-6 col-lg-3" style="text-align: center; border: solid 1px LightGrey;">
+                  <p style="margin-bottom: 7px;">Recurring</p>
+                  <h5>📆 300+</h5>
+                  <p>Daily Visits</p>
+                </div>
+                <div class="col-6 col-lg-3" style="text-align: center; border: solid 1px LightGrey;">
+                  <p style="margin-bottom: 7px;">CTR</p>
+                  <h5>🎯 10%</h5>
+                  <p>Applications</p>
+                </div>
+                <div class="col-6 col-lg-3" style="text-align: center; border: solid 1px LightGrey;">
+                  <p style="margin-bottom: 7px;">Price</p>
+                  <h5>💳 $29</h5>
+                  <p>Launch Campaign</p>
+                </div>
+              </div>
+            </div>
+            <hr>
             <!-- job post form -->
             <div class="stripe">
               <form action="https://formspree.io/mbjgrnbl" method="post" id="payment-form" >
@@ -364,21 +403,21 @@
                 <input type="text" name="job_location" value="Remote" required/>
 
                 <h5>Contractor Info</h5>
-                <label for="contractor_name">Name *</label>
-                <input type="text" name="contractor_name" required/>
+                <label for="name">Name *</label>
+                <input type="text" name="name" required/>
 
-                <label for="contractor_url">Website *</label>
-                <input type="text" name="contractor_url" required/>
+                <label for="url">Website *</label>
+                <input type="text" name="url" required/>
 
-                <label for="contractor_submission">Submission Link / Email *</label>
-                <input type="text" name="contractor_submission" required/>
+                <label for="submission">Submission Link / Email *</label>
+                <input type="text" name="submission" required/>
 
-                <label for="contractor_email">Email *</label>
-                <input type="email" name="contractor_email" required/>
+                <label for="email">Email *</label>
+                <input type="email" name="email" required/>
 
                 <h5>Payment Info</h5>
                 <br>
-                <h6>Job Post (Launch Discount) - $29.00</h6>
+                <h6>Job Post (Launch Discount) - $19.00</h6>
 
                 <label for="card-element">Credit or debit card (powered by Stripe)</label>
                 <div id="card-element">
@@ -388,7 +427,7 @@
                 <!-- Used to display form errors. -->
                 <div id="card-errors" role="alert"></div>
 
-                <input type="submit" value="Submit Payment"/>
+                <input type="submit" value="Submit Payment" class="btn btn-primary"/>
                 <input type="hidden" name="_next" value="https://nocodery.com/"/>
                 <input type="hidden" name="date" id="post_date" />
               </form>
@@ -433,10 +472,8 @@
     <!-- filters -->
     <script type="text/javascript" src="./assets/js/custom/filters.js"></script>
 
-    <!-- script type="text/javascript" src="./assets/js/custom/jobpostform.js"></script -->
-
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="./assets/js/custom/stripe.js"></script>
+    <script src="./assets/js/custom/stripe_dev.js"></script>
 
     <!-- get job listings -->
     <script src="assets/js/custom/joblistings.js"></script>
@@ -448,9 +485,6 @@
     <!-- drift -->
     <script type="text/javascript" src="./assets/js/custom/drift.js"></script>
 
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e0633b6e6c77b68"></script>
-
     <!-- cookie consent -->
     <script type="text/javascript" src="./assets/js/custom/cookiebanner.js"></script>
 
@@ -461,8 +495,11 @@
     <!-- logrocket -->
     <script type="text/javascript" src="./assets/js/custom/logrocket.js"></script>
 
+    <!-- hello bar -->
+    <script src="https://my.hellobar.com/573f26dfe089ae8f2b205893d356d76d2fe5b69e.js" type="text/javascript" charset="utf-8" async="async"></script>
 
-
+    <!-- metomic concent -->
+    <a href="javascript:window.Metomic('ConsentManager:show')">manage cookies</a>
 </body>
 
 </html>
