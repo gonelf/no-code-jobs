@@ -502,7 +502,8 @@
        // check if member is logged in
        console.log(member.loggedIn);
        if (member.loggedIn){
-         $("#login_btn").attr("href", "/profile.html");
+         $("#login_btn").insertBefore("<a href='/profile.html'>Profile</a>");
+         $("#login_btn").remove();
        }
     })
     </script>
