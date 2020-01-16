@@ -34,7 +34,6 @@
          min-height: 0% !important;
       }
     </style>
-    
 </head>
 
 <body>
@@ -171,7 +170,7 @@
                         <div class="sidebar-widget">
                             <div class="inner" style="text-align: center">
                                 <a id="login_btn" data-toggle="modal" data-target="#loginModal" target="_blank" data-membership-id="5e1e59424ae4120017321c18">
-                                  <strong>Login</strong>
+                                  <strong ms-rewrite="Profile">Login</strong>
                                 </a>
                             </div>
                         </div>
@@ -445,6 +444,13 @@
       $("#signupModal").modal('toggle');
       $("#loginModal").modal('toggle');
     }
+
+    MemberStack.onReady.then(function(member) {
+       // check if member is logged in
+       if (member.loggedIn){
+         $("#login_btn").attr("href", member.memberPage);
+       }
+    })
     </script>
 
     <!-- Google Map API JS -->
