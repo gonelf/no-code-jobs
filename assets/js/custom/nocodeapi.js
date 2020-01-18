@@ -8,7 +8,8 @@ async function registerUser(username, email) {
             }
         });
         const json = await response.json();
-        console.log("Success:", JSON.stringify(json));
+        console.log("Success:", JSON[0]['fields'].stringify(json));
+
     } catch (error) {
         console.error("Error:", error);
     }
