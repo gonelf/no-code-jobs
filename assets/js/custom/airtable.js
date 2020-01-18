@@ -8,6 +8,7 @@ MemberStack.onReady.then(function(member) {
          console.log(json['Username']);
          $("#Username").val(json['fields']['Username']);
          $("#Email").val(json['fields']['Email']);
+         $("#profile").attr("action", "https://www.formnano.com/forms/e0aec00f-e900-4ee5-b1ff-6c1ee19de337?record_id="+json['fields']['record_id'])
        })
      }
      else {
