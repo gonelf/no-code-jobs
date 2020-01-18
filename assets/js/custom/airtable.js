@@ -29,6 +29,6 @@ $("#profile").submit(function(e){
     record[value.name] = value.value;
   })
   updateRecord(record, function(result){
-    console.log(result);
+    console.log(JSON.stringify(result));
   })
 })
