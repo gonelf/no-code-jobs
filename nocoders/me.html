@@ -463,8 +463,9 @@
              }
              else {
                // create profile
-               registerUser(member, function(result){
-                 console.log(result);
+               registerUser(member, function(register_id){
+                 member.updateProfile(obj, {"register_id": register_id})
+                 console.log(register_id);
                });
              }
            }
