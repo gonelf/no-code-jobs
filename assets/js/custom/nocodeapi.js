@@ -10,10 +10,24 @@ async function registerUser(member, callback) {
             }
         });
         const json = await response.json();
-        console.log("Success:", JSON.stringify(json[0]['fields']['record_id']));
         return callback(json[0]['fields']['record_id'])
     } catch (error) {
         console.error("Error:", error);
         return false;
+    }
+}
+
+async function getUser(record_id, callback) {
+    try {
+        const response = await fetch("https://v1.nocodeapi.com/nocodery/airtable/JbqRxeaBwbmMXsBU?id="+record_id, {
+            method: "get",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const json = await response.json();
+        return callback(json)
+    } catch (error) {
+        console.error("Error:", error);
     }
 }

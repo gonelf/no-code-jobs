@@ -456,16 +456,17 @@
     <script>
         MemberStack.onReady.then(function(member) {
            // check if member is logged in
-           console.log(member.register_id);
            if (member.loggedIn){
              if(member.register_id != undefined){
                // retrive profile
+               getUser(member.record_id, function(json){
+                 console.log("Success:", JSON.stringify(json));
+               })
              }
              else {
                // create profile
                registerUser(member, function(register_id){
                  member.updateProfile({"register_id": register_id}, false)
-                 console.log(register_id);
                });
              }
            }
