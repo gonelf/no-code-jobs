@@ -459,7 +459,7 @@
            if (member.loggedIn){
              if(member.register_id != undefined){
                // retrive profile
-               getUser(member.record_id, function(json){
+               getUser(member.register_id, function(json){
                  console.log("Success:", JSON.stringify(json));
                })
              }
