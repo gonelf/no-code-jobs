@@ -451,7 +451,7 @@
 
     <!-- logrocket -->
     <script type="text/javascript" src="../assets/js/custom/logrocket.js"></script>
-
+    <script type="text/javascript" src="../assets/js/custom/memstack.js"></script>
     <script type="text/javascript" src="../assets/js/custom/nocodeapi.js"></script>
     <script>
         MemberStack.onReady.then(function(member) {
@@ -463,12 +463,7 @@
              }
              else {
                // create profile
-               var register_id = registerUser(member.username, member.email);
-               if (register_id) {
-                 member.updateProfile({
-                   "register_id": register_id
-                 }, false)
-               }
+               registerUser(member);
              }
            }
         })
