@@ -17,6 +17,22 @@ async function registerUser(member, callback) {
     }
 }
 
+async function updateRecord(record, callback) {
+    try {
+        const response = await fetch("https://v1.nocodeapi.com/nocodery/airtable/JbqRxeaBwbmMXsBU", {
+            method: "post",
+			body: JSON.stringify([record]),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const json = await response.json();
+        return callback(json[0]['fields']);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
 async function getUser(record_id, callback) {
     try {
         const response = await fetch("https://v1.nocodeapi.com/nocodery/airtable/JbqRxeaBwbmMXsBU?id="+record_id, {

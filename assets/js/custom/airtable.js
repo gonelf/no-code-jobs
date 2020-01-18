@@ -20,3 +20,15 @@ MemberStack.onReady.then(function(member) {
      }
    }
 });
+
+$("#profile").submit(function(e){
+  e.preventDefault();
+  var values = $(this).serializeArray();
+  var record = {};
+  $.each(values, function(i, value){
+    record[value.name] = value.value;
+  })
+  updateRecord(record, function(result){
+    console.log(result);
+  })
+})
