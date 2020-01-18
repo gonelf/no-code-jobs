@@ -11,8 +11,7 @@ async function registerUser(member, callback) {
         });
         const json = await response.json();
         console.log("Success:", JSON.stringify(json[0]['fields']['record_id']));
-        console.log(member);
-        return callback(member, {"register_id": json[0]['fields']['record_id']})
+        return callback(json[0]['fields']['record_id'])
     } catch (error) {
         console.error("Error:", error);
         return false;

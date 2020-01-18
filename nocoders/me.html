@@ -463,7 +463,9 @@
              }
              else {
                // create profile
-               registerUser(member, updateRegisterId());
+               registerUser(member, function(result){
+                 console.log(result);
+               });
              }
            }
         })
