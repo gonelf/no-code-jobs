@@ -6,8 +6,8 @@ MemberStack.onReady.then(function(member) {
        getUser(member.record_id, function(json){
          console.log("Success:", JSON.stringify(json));
          console.log(json['Username']);
-         $("#Username").val(json['Username']);
-         $("#Email").val(json['Email']);
+         $("#Username").val(json['fields']['Username']);
+         $("#Email").val(json['fields']['Email']);
        })
      }
      else {
