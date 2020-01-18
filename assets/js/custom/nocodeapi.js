@@ -20,7 +20,7 @@ async function registerUser(member, callback) {
 async function updateRecord(record, callback) {
     try {
         const response = await fetch("https://v1.nocodeapi.com/nocodery/airtable/JbqRxeaBwbmMXsBU", {
-            method: "post",
+            method: "patch",
 			body: JSON.stringify([record]),
             headers: {
                 "Content-Type": "application/json"
