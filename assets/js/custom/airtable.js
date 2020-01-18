@@ -28,6 +28,7 @@ $("#profile").submit(function(e){
   $.each(values, function(i, value){
     record[value.name] = value.value;
   })
+  console.log(record);
   updateRecord(record, function(result){
     console.log(JSON.stringify(result));
   })
