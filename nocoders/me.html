@@ -458,12 +458,12 @@
            // check if member is logged in
            console.log(member.register_id);
            if (member.loggedIn){
-             if(member.register_id){
+             if(member.register_id != undefined){
                // retrive profile
              }
              else {
                // create profile
-               registerUser(member, updateProfile());
+               registerUser(member, updateRegisterId());
              }
            }
         })

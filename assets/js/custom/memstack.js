@@ -1,3 +1,3 @@
-function updateProfile (member, obj) {
+function updateRegisterId (member, obj) {
    member.updateProfile(obj, false)
 }
