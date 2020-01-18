@@ -26,8 +26,14 @@ $("#profile").submit(function(e){
   var values = $(this).serializeArray();
   var record = {};
   $.each(values, function(i, value){
-    record[value.name] = value.value;
+    if (value.name == "Tools_skill_set"){
+        record[value.name] = [value.value];
+    }
+    else {
+      record[value.name] = value.value;
+    }
   })
+  record["record_id"] = $("#record_id").val();
   console.log(record);
   updateRecord(record, function(result){
     console.log(JSON.stringify(result));
