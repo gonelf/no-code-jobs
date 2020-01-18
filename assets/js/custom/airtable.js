@@ -5,6 +5,7 @@ MemberStack.onReady.then(function(member) {
        // retrive profile
        getUser(member.record_id, function(json){
          console.log("Success:", JSON.stringify(json));
+         console.log(json['Username']);
          $("#Username").val(json['Username']);
          $("#Email").val(json['Email']);
        })
