@@ -1,4 +1,4 @@
-async function registerUser(member username, email) {
+async function registerUser(member) {
   var username = member.username;
   var email = member.email;
     try {
