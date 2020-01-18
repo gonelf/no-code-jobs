@@ -457,16 +457,16 @@
         MemberStack.onReady.then(function(member) {
            // check if member is logged in
            if (member.loggedIn){
-             if(member.register_id != undefined){
+             if(member.record_id != undefined){
                // retrive profile
-               getUser(member.register_id, function(json){
+               getUser(member.record_id, function(json){
                  console.log("Success:", JSON.stringify(json));
                })
              }
              else {
                // create profile
                registerUser(member, function(register_id){
-                 member.updateProfile({"register_id": register_id}, false)
+                 member.updateProfile({"record_id": register_id}, false)
                });
              }
            }
