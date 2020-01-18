@@ -463,7 +463,12 @@
              }
              else {
                // create profile
-               registerUser(member.username, member.email);
+               var register_id = registerUser(member.username, member.email);
+               if (register_id) {
+                 member.updateProfile({
+                   "register_id": register_id
+                 }, false)
+               }
              }
            }
         })
