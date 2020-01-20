@@ -18,6 +18,7 @@ function addFilter (key, value){
   if ((!urlParams.has(key) || value != $("#"+key).val()) && value != "") {
     log("filter", {"tool": value});
     urlParams.set(key, value.toLowerCase());
+    urlParams.set("page", 1);
     window.location.search = urlParams;
   }
 }

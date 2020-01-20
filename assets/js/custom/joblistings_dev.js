@@ -150,7 +150,7 @@ var contract = getUrlParameter("contract");
 var page = getUrlParameter("page");
 var job = getUrlParameter("job");
 
-var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=crawler&"+
+var url = "https://script.google.com/macros/s/AKfycbxhxS22Sisr7TTGaabiBtdmHnBWcHWDn256puZVgRZVJEUjGQ/exec?sheet=crawler&"+
           "software="+(software != undefined ? software : '')+
           "&contract="+(contract != undefined ? contract : '')+
           "&page="+(page != undefined ? page-1 : 0);
@@ -202,7 +202,7 @@ $.getJSON( url, function( data ) {
         }, 2000);
         $("#job"+job).click();
       }
-
+      
       pagination(parseInt(data['page'])+1, data['total']);
     // });
   }
