@@ -34,19 +34,19 @@ $.getJSON( url, function( data ) {
 
   var count = data['data'].length;
   if (count > 0) {
-    $.each( data, function( key, val ) {
+    //$.each( data, function( key, val ) {
       var items = [];
       var tool_param = getUrlParameter("tool");
       var tool_info = {}
 
-      $.each( val, function( i_key, tool ) {
+      $.each( data['data'], function( i_key, tool ) {
 
         if (tool_param && tool_param.toLowerCase() == tool['name'].toLowerCase()) tool_info = tool;
         var verified = (tool['verified'] == true) ? '<div style="position: absolute; top: -23px; right: -7px;"><img src="./assets/images/custom/verified.png" alt="verified"></div>' : '' ;
 
         items.push('<div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12">'+
                         '<a href="tool.html?tool='+tool['name']+'" class="company-list" onClick="log(\'tool\', {\'name\': \''+tool['name']+'\'})">'+
-                            '<span class="company-logo"><img src="'+tool['logo']+'" style="width: 70px;" alt="company-1"></span>'+
+                            '<span class="company-logo"><img src="'+tool['logo']+'" style="width: 70px;" alt="'+tool['name']+'"></span>'+
                             '<h6 class="title">'+tool['name']+'</h6>'+
                             //'<span class="open-job">2 open positions</span>'+
                             '<span class="location">'+tool['description']+'</span>'+
@@ -61,7 +61,7 @@ $.getJSON( url, function( data ) {
       else {
         $( ".company-list-wrap" ).append(items.join(""));
       }
-    });
+    //});
   }
   else {
     $( ".job-list-wrap" ).append("<div style='text-align: center; font-size: xx-large;'>No offers found for "+(software != undefined ? "'"+software+"'" : '')+
