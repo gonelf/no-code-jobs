@@ -158,7 +158,7 @@ var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46Z
 $.getJSON( url, function( data ) {
   $("#loading").remove();
   var count = data['data'].length;
-  // console.log(data['data']);
+  console.log(data);
   if (count > 0) {
     // $.each( data['data'], function( key, val ) {
       var items = [];
