@@ -488,6 +488,7 @@
     <!-- logrocket -->
     <script type="text/javascript" src="../assets/js/custom/logrocket.js"></script>
 
+    <script type="text/javascript" src="../assets/js/custom/nocodeapi.js"></script>
     <script>
     function openLoginSignup(){
       $("#signupModal").modal('toggle');
@@ -502,6 +503,36 @@
          $("#login_btn").remove();
        }
     })
+
+    function drawTools(tools){
+      var result = "";
+      $.each(tools, function(i, tool){
+        result += "<div style='padding: 5px; border: solid 1px LightGrey; position: relative; float: left;'>"+tool+"</div>";
+      });
+      return result;
+    }
+
+    getUsers(function(result){
+      // populate
+      console.log(result);
+      var items = []
+      $.each(result, function(i, result){
+        var user = result['fields'];
+        var photo = (user['Photo'] != undefined) ? user['Photo'][0]['url'] : "https://pxcom.aero/wp-content/uploads/default-user-icon-profile.png" ;
+        var tools = (user['Tools_skill_set'] != undefined) ? drawTools(user['Tools_skill_set']) : "" ;
+        var verified = "";
+        items.push('<div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12">'+
+                        '<a href="profile.html?user='+user['Username']+'" class="company-list" >'+
+                            '<span class="company-logo"><img src="'+photo+'" alt=""></span>'+
+                            '<h6 class="title">'+user['Username']+'</h6>'+
+                            //'<span class="open-job">2 open positions</span>'+
+                            '<span class="location">'+tools+'</span>'+
+                        '</a>'+
+                        verified+
+                    '</div>');
+      });
+      $( ".company-list-wrap" ).append(items.join(""));
+    });
     </script>
 </body>
 

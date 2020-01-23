@@ -388,9 +388,18 @@
 
     <!-- logrocket -->
     <script type="text/javascript" src="../assets/js/custom/logrocket.js"></script>
-    <script type="text/javascript" src="../assets/js/custom/memstack.js"></script>
-    <script type="text/javascript" src="../assets/js/custom/nocodeapi.js"></script>
-    <script type="text/javascript" src="../assets/js/custom/airtable.js"></script>
+    <script type="text/javascript" src="../assets/js/custom/sheetyAPI.js"></script>
+    <script>
+      MemberStack.onReady.then(function(member) {
+         // check if member is logged in
+         console.log(member);
+         if (member.loggedIn){
+           getUser(member.id, function(e){
+             console.log(e);
+           })
+         }
+      })
+    </script>
 </body>
 
 </html>
