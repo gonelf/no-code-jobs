@@ -17,8 +17,8 @@ async function registerUser(member, callback) {
     }).done(function(data) {
       console.log(data);
     })
-    .fail(function() {
-      console.log( "error" );
+    .fail(function(error) {
+      console.log(error);
     })
     .always(function() {
       console.log( "finished" );
