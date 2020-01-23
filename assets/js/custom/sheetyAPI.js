@@ -14,7 +14,7 @@ async function registerUser(member, callback) {
     console.log(body);
     // "https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users"
     try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbwVjfwx6lngL8kVwOCIX4CCZTcQV_2z_j1OGMyPT44/dev", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbyRnNa6qUw64odsfw-0PfH10vFya60CwfDxR5AqHQC-g4ogIM0/exec", {
             method: "POST",
 			      body: JSON.stringify(body),
             headers: {
