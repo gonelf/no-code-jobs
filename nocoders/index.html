@@ -488,7 +488,7 @@
     <!-- logrocket -->
     <script type="text/javascript" src="../assets/js/custom/logrocket.js"></script>
 
-    <script type="text/javascript" src="../assets/js/custom/nocodeapi.js"></script>
+    <script type="text/javascript" src="../assets/js/custom/sheetyAPI.js"></script>
     <script>
     function openLoginSignup(){
       $("#signupModal").modal('toggle');
@@ -517,9 +517,8 @@
       console.log(result);
       var items = []
       $.each(result, function(i, result){
-        var user = result['fields'];
-        var photo = (user['Photo'] != undefined) ? user['Photo'][0]['url'] : "https://pxcom.aero/wp-content/uploads/default-user-icon-profile.png" ;
-        var tools = (user['Tools_skill_set'] != undefined) ? drawTools(user['Tools_skill_set']) : "" ;
+        var photo = (user['photo'] != undefined) ? user['photo'] : "https://pxcom.aero/wp-content/uploads/default-user-icon-profile.png" ;
+        var tools = (user['skill_set'] != undefined) ? drawTools(user['skill_set']) : "" ;
         var verified = "";
         items.push('<div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12">'+
                         '<a href="profile.html?user='+user['Username']+'" class="company-list" >'+

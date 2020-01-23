@@ -50,7 +50,7 @@ async function getUser(record_id, callback) {
 
 async function getUsers(callback) {
     try {
-        const response = await fetch("https://v1.nocodeapi.com/nocodery/airtable/JbqRxeaBwbmMXsBU", {
+        const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
