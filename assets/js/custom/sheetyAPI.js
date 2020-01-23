@@ -12,8 +12,9 @@ async function registerUser(member, callback) {
         }
     }
     console.log(body);
+    // "https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users"
     try {
-        const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwVjfwx6lngL8kVwOCIX4CCZTcQV_2z_j1OGMyPT44/dev", {
             method: "POST",
 			      body: JSON.stringify(body),
             headers: {
