@@ -35,7 +35,7 @@ async function updateRecord(record, callback) {
 
 async function getUser(record_id, callback) {
     try {
-        const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/"+record_id, {
+        const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/?id="+record_id, {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
