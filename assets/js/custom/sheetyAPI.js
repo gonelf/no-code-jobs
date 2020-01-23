@@ -20,7 +20,7 @@ async function registerUser(member, callback) {
             }
         });
         const json = await response.json();
-        return callback(json[0]['fields']['record_id'])
+        return callback(json)
     } catch (error) {
         console.error("Error:", error);
         return false;
