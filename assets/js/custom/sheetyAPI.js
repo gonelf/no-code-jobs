@@ -4,7 +4,7 @@ async function registerUser(member, callback) {
   var id = member.id
     try {
         const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", {
-            method: "post",
+            method: "POST",
 			      body: JSON.stringify(
               {
                 "user": {
