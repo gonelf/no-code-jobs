@@ -12,17 +12,21 @@ async function registerUser(member, callback) {
         }
     }
     console.log(body);
-    $.post( "https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", function( data ) {
-      console.log( data );
-    }).done(function(data) {
-      console.log(data);
-    })
-    .fail(function(error) {
-      console.log(error);
-    })
-    .always(function() {
-      console.log( "finished" );
-    });
+    try {
+        const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", {
+            method: "POST",
+			      body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "multipart/form-data"
+                //"application/json"
+            }
+        });
+        const json = await response.json();
+        return callback(json)
+    } catch (error) {
+        console.error("Error:", error);
+        return false;
+    }
 }
 
 async function updateRecord(record, callback) {
