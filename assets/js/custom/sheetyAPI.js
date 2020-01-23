@@ -15,10 +15,10 @@ async function registerUser(member, callback) {
     try {
         const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", {
             method: "POST",
-			      body: JSON.stringify(body),
+			      body: body,
             headers: {
-                "Content-Type": "multipart/form-data"
-                //"application/json"
+                "Content-Type": "application/json",
+                "Authorization": "Bearer cenas"
             }
         });
         const json = await response.json();
