@@ -17,8 +17,7 @@ async function registerUser(member, callback) {
             method: "POST",
 			      body: body,
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer cenas"
+                "Content-Type": "application/x-www-form-urlencoded"
             }
         });
         const json = await response.json();
