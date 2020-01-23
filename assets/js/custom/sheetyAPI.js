@@ -7,8 +7,8 @@ async function registerUser(member, callback) {
           "id": id,
           "username":username,
           "email":email,
-          "created_date": new Date(),
-          "updated_date": new Date()
+          "created_date": new Date().toISOString(),
+          "updated_date": new Date().toISOString()
         }
     }
     console.log(body);
