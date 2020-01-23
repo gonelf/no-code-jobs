@@ -516,7 +516,7 @@
       // populate
       console.log(result);
       var items = []
-      $.each(result, function(i, result){
+      $.each(result['users'], function(i, user){
         var photo = (user['photo'] != undefined) ? user['photo'] : "https://pxcom.aero/wp-content/uploads/default-user-icon-profile.png" ;
         var tools = (user['skill_set'] != undefined) ? drawTools(user['skill_set']) : "" ;
         var verified = "";
