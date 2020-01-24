@@ -4,12 +4,12 @@ async function registerUser(member, callback) {
   var id = member.id
   var body = {}
   body['user'] = {}
-  body['user']['id'] = idea
+  body['user']['id'] = id
   body['user']['email'] = email
   body['user']['username'] = username
   body['user']['created_date'] = new Date().toISOString()
   body['user']['updated_date'] = new Date().toISOString()
-  
+
     console.log(body);
     try {
         const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", {
