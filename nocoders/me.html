@@ -395,6 +395,8 @@
          console.log(member);
          if (member.loggedIn){
            getUser(member.id, function(result){
+             console.log("getUser");
+             console.log(result);
              if (result['users'].length > 0){
                // popuLate
              }
