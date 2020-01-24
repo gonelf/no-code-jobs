@@ -155,28 +155,29 @@
                     <div>
                       <h3>Profile</h3>
                         <form id="profile" method="post">
-                            <input type="hidden" id="record_id">
+                          <input type="hidden" id="id">
+                            <input type="hidden" id="resourceId">
 
                             <label for="Username">Username</label>
-                            <input type="text" name="Username" id="Username" />
+                            <input type="text" name="Username" id="username" />
 
                             <label for="Name">Name</label>
-                            <input type="text" name="Name" id="Name" />
+                            <input type="text" name="Name" id="name" />
 
                             <label for="Email">Email</label>
-                            <input type="text" name="Email" id="Email" />
+                            <input type="text" name="Email" id="email" />
 
                             <label for="Description">Description</label>
-                            <textarea type="text" name="Description" id="Description" ></textarea>
+                            <textarea type="text" name="Description" id="description" ></textarea>
 
                             <label for="Twitter">Username</label>
-                            <input type="text" name="Twitter" id="Twitter" />
+                            <input type="text" name="Twitter" id="twitter" />
 
                             <label for="Portfolio_link">Portfolio link</label>
-                            <input type="text" name="Portfolio_link" id="Portfolio_link" />
+                            <input type="text" name="Portfolio_link" id="portfolioLink" />
 
                             <label for="Tools_skill_set">Tools skill set</label>
-                            <select name="Tools_skill_set" id="Tools_skill_set"/>
+                            <select name="Tools_skill_set" id="skillSet"/>
                               <option selected="selected" value="Webflow">Webflow</option>
                               <option value="Zapier">Zapier</option>
                               <option value="Bubble">Bubble</option>
@@ -390,6 +391,25 @@
     <script type="text/javascript" src="../assets/js/custom/logrocket.js"></script>
     <script type="text/javascript" src="../assets/js/custom/sheetyAPI.js"></script>
     <script>
+    function getFormData($form){
+        var unindexed_array = $form.serializeArray();
+        var indexed_array = {};
+
+        $.map(unindexed_array, function(n, i){
+            indexed_array[n['name']] = n['value'];
+        });
+
+        return indexed_array;
+    }
+
+    function(user){
+      $("#id").val(user['id'])
+      $("#resourceId").val(user['resourceId'])
+      $("#username").val(user['username'])
+      $("#email").val(user['email'])
+      $("#description").val(user['description'])
+      $("#skillSet").val(user['skillSet'])
+    }
       MemberStack.onReady.then(function(member) {
          // check if member is logged in
          console.log(member);
@@ -398,7 +418,8 @@
              console.log("getUser");
              console.log(result);
              if (result['users'].length > 0){
-               // popuLate
+               // populate
+               populateData(result['users'][0])
              }
              else {
                // Register
@@ -408,6 +429,11 @@
              }
            })
          }
+      })
+
+      $("#profile").click(function(e){
+        e.preventDefault();
+        updateRecord(getFormData($("#profile")));
       })
     </script>
 </body>

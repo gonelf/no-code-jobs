@@ -31,9 +31,9 @@ async function registerUser(member, callback) {
 
 async function updateRecord(record, callback) {
     try {
-        const response = await fetch("https://v1.nocodeapi.com/nocodery/airtable/JbqRxeaBwbmMXsBU", {
-            method: "patch",
-			body: JSON.stringify([record]),
+        const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/", {
+            method: "put",
+			      body: JSON.stringify(record),
             headers: {
                 "Content-Type": "application/json"
             }
