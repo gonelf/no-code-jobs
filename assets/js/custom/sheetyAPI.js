@@ -46,6 +46,7 @@ async function updateRecord(record, callback) {
 }
 
 async function getUser(record_id, callback) {
+  console.log("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/?resource_id="+record_id);
     try {
         const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/?resource_id="+record_id, {
             method: "get",
