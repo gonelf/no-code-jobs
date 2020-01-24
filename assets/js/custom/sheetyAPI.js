@@ -4,11 +4,11 @@ async function registerUser(member, callback) {
   var id = member.id
   var body = {
         "user": {
-          "resource_id": id,
+          "resourceId": id,
           "username":username,
           "email":email,
-          "created_date": new Date().toISOString(),
-          "updated_date": new Date().toISOString()
+          "createdDate": new Date().toISOString(),
+          "updatedDate": new Date().toISOString()
         }
     }
     console.log("registerUser");
@@ -46,7 +46,7 @@ async function updateRecord(record, callback) {
 }
 
 async function getUser(record_id, callback) {
-  console.log("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/?resource_id="+record_id);
+  console.log("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/?resourceId="+record_id);
     try {
         const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/?resource_id="+record_id, {
             method: "get",
