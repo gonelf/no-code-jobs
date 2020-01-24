@@ -2,17 +2,27 @@ async function registerUser(member, callback) {
   var username = member.username;
   var email = member.email;
   var id = member.id
-  var body = JSON.stringify({"user": {"id": id,"username":username,"email":email,"created_date": new Date().toISOString(),"updated_date": new Date().toISOString()}});
+  var body = {
+          "id": id,
+          "username":username,
+          "email":email,
+          "created_date": new Date().toISOString(),
+          "updated_date": new Date().toISOString()
+        
+    }
     console.log(body);
     try {
         const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", {
             method: "POST",
-			      body: body
+			      body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json"
+            }
         });
         const json = await response.json();
         return callback(json)
     } catch (error) {
-        console.log("Error:", error);
+        console.error("Error:", error);
         return false;
     }
 }
