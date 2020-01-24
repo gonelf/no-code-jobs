@@ -2,14 +2,15 @@ async function registerUser(member, callback) {
   var username = member.username;
   var email = member.email;
   var id = member.id
-  var body = {}
-  body['user'] = {}
-  body['user']['id'] = id
-  body['user']['email'] = email
-  body['user']['username'] = username
-  body['user']['created_date'] = new Date().toISOString()
-  body['user']['updated_date'] = new Date().toISOString()
-
+  var body = {
+        "user": {
+          "resource_id": id,
+          "username":username,
+          "email":email,
+          "created_date": new Date().toISOString(),
+          "updated_date": new Date().toISOString()
+        }
+    }
     console.log(body);
     try {
         const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users", {
@@ -45,7 +46,7 @@ async function updateRecord(record, callback) {
 
 async function getUser(record_id, callback) {
     try {
-        const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/?id="+record_id, {
+        const response = await fetch("https://v2-api.sheety.co/a0ec0d951abaa3c46c358969a6b2f696/nocodeDb/users/?resource_id="+record_id, {
             method: "get",
             headers: {
                 "Content-Type": "application/json"
