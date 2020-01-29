@@ -145,7 +145,7 @@ function jumpToPage(page){
   window.location.search = urlParams;
 }
 
-function loadJobs(url, removeLoading, boosted) {
+function loadJobs(url, paginate, removeLoading, boosted) {
   $.getJSON( url, function( data ) {
     var count = data['data'].length;
     if(removeLoading) $("#loading").remove();
@@ -195,7 +195,7 @@ function loadJobs(url, removeLoading, boosted) {
           $("#job"+job).click();
         }
 
-        pagination(parseInt(data['page'])+1, data['total']);
+        if (paginate) pagination(parseInt(data['page'])+1, data['total']);
       // });
     }
     else {
@@ -207,7 +207,7 @@ function loadJobs(url, removeLoading, boosted) {
 }
 
 // load featured
-loadJobs("https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=featured", false, true);
+loadJobs("https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=featured", false, false, true);
 
 // load regular
 var software = getUrlParameter("software");
@@ -220,7 +220,7 @@ var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46Z
           "&contract="+(contract != undefined ? contract : '')+
           "&page="+(page != undefined ? page-1 : 0);
 
-loadJobs(url, true, false);
+loadJobs(url, true, true, false);
 
 
 
