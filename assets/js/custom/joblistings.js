@@ -206,13 +206,17 @@ function loadJobs(url, paginate, removeLoading, boosted) {
   });
 }
 
+var page = getUrlParameter("page");
+
 // load featured
-loadJobs("https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=featured", false, false, true);
+if(page < 2 || page == undefined || page == "") {
+  loadJobs("https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=featured", false, false, true);
+}
 
 // load regular
 var software = getUrlParameter("software");
 var contract = getUrlParameter("contract");
-var page = getUrlParameter("page");
+
 var job = getUrlParameter("job");
 
 var url = "https://script.google.com/macros/s/AKfycbxmHiRBIhd7ErXuJlm8QiweTth46ZxHKJuNRjMp7EylT9faGw/exec?sheet=crawler&"+
