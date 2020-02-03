@@ -3,6 +3,10 @@ function unescapeHtml(str){
   return str.replace(/&([^;]+);/g, (m, c) => map[c]|| '')
 }
 
+function p_to_br(content){
+  return content.replace(/<p[^>]*>/g, '').replace(/<\/p>/g, '<br /><br />');
+}
+
 function strip_tags( _html /*you can put each single tag per argument*/ )
 {
     var _tags = [], _tag = "" ;
@@ -19,6 +23,10 @@ function strip_tags( _html /*you can put each single tag per argument*/ )
         var _re = new RegExp( "<(?!("+_tags.join("|")+")\s*\/?)[^>]+>", "g" );
         return _html.replace( _re, '' );
     }
+}
+
+function convertSubject(content){
+  return strip_tags(unescapeHtml(p_to_br(content)), "br")
 }
 
 function dateInvert(date){
@@ -179,7 +187,7 @@ function loadJobs(url, paginate, removeLoading, boosted) {
                       '</a>'+
                     '<div class="collapse" id="collapse'+job['id']+'">'+
                       '<div class="card card-body" style="font-size: 16px;">'+
-                        strip_tags(unescapeHtml(job['description']), "br")+
+                        convertSubject(job['description'])+
                         '<div class="text-center" style="margin: 30px 0px;"><a href="#" onClick="applyTo(\''+job['submission']+'\', \''+job['id']+'\');" target="_blank" class="btn btn-primary" style="width: 200px;">Apply</a></div>'+
                       '</div>'+
                     '</div>');
