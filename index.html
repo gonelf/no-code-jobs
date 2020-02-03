@@ -416,7 +416,8 @@
                 <input type="text" name="job_title" required/>
 
                 <label for="job_description">Description *</label>
-                <textarea type="text" name="job_description" rows="8" required></textarea>
+                <textarea type="text" name="job_description" id="job_description" rows="8" style="margin: 0;" required></textarea>
+                <div id="desc_count" style="margin-bottom: 30px;">499/499</div>
 
                 <label for="job_contract">Contract type*</label>
                 <select name="job_contract" required/>
@@ -511,6 +512,15 @@
           $("#other").hide();
         }
       })
+
+      $("#job_description").on('input', function(){
+        var length = this.value.length
+        if (length > 499) {
+          length = 499
+          $(this).val(this.value.substring(0, length));
+        }
+        $("#desc_count").html(499-length+'/499');
+      });
     </script>
 
     <script>
