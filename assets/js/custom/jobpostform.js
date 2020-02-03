@@ -1,21 +1,17 @@
-jQuery.loadScript = function (url, callback) {
-    jQuery.ajax({
-        url: url,
-        dataType: 'script',
-        success: callback,
-        async: true
-    });
-}
-
-var loaded = false;
-
-$("#post_a_job").click(function(){
-  log("menu", {"button": "post a job"});
-  if (!loaded) {
-    $.loadScript("https://services.cognitoforms.com/s/nPwE6ocbek6wVFrZxleMwg", function(){
-      Cognito.load("forms", { id: "1" });
-      loaded = true;
-      setTimeout(function(){ $("#loading_form").remove(); }, 1500);
-    });
+$("#job_tool").on('change', function(){
+  if (this.value == "Other"){
+    $("#other").show();
   }
+  else {
+    $("#other").hide();
+  }
+})
+
+$("#job_description").on('input', function(){
+  var length = this.value.length
+  if (length > 499) {
+    length = 499
+    $(this).val(this.value.substring(0, length));
+  }
+  $("#desc_count").html(499-length+'/499');
 });
